@@ -11,3 +11,5 @@ scikit-learn
 matplotlib
 seaborn
 nltk
+openpyxl
+undetected-chromedriver
