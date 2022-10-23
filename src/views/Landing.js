@@ -29,12 +29,10 @@ export default function Landing() {
               <div className="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
                 <div className="pr-12">
                   <h1 className="text-white font-semibold text-5xl">
-                    Your story starts with us.
+                    Welcome!
                   </h1>
                   <p className="mt-4 text-lg text-blueGray-200">
-                    This is a simple example of a Landing Page you can build
-                    using Notus React. It features multiple CSS components based
-                    on the Tailwind CSS design system.
+                    This is a one-stop job application website. To get started, please upload your resume below or head to the profile page to update your profile.
                   </p>
                 </div>
               </div>
@@ -61,34 +59,32 @@ export default function Landing() {
           </div>
         </div>
 
-        <section className="pb-20 bg-blueGray-200 -mt-24">
+        <section className="pb-10 bg-blueGray-200 -mt-5">
           <div className="container mx-auto px-4">
-            <div className="flex flex-wrap">
-              <div className="lg:pt-12 pt-6 w-full md:w-4/12 px-4 text-center">
+            <div className="flex flex-wrap justify-center">
+              <div className="pt-6 w-full md:w-4/12 px-4 text-center">
                 <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
                   <div className="px-4 py-5 flex-auto">
                     <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-red-400">
                       <i className="fas fa-award"></i>
                     </div>
-                    <h6 className="text-xl font-semibold">Awarded Agency</h6>
+                    <h6 className="text-xl font-semibold">Job Listing Page</h6>
                     <p className="mt-2 mb-4 text-blueGray-500">
-                      Divide details about your product or agency work into
-                      parts. A paragraph describing a feature will be enough.
+                      Get the listings of jobs that we have.
                     </p>
                   </div>
                 </div>
               </div>
-
-              <div className="w-full md:w-4/12 px-4 text-center">
+              
+              <div className="lg:pt-12 pt-6 w-full md:w-4/12 px-4 text-center">
                 <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
                   <div className="px-4 py-5 flex-auto">
-                    <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-lightBlue-400">
-                      <i className="fas fa-retweet"></i>
+                    <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-emerald-400">
+                      <i className="fas fa-award"></i>
                     </div>
-                    <h6 className="text-xl font-semibold">Free Revisions</h6>
+                    <h6 className="text-xl font-semibold">Upload Resume</h6>
                     <p className="mt-2 mb-4 text-blueGray-500">
-                      Keep you user engaged by providing meaningful information.
-                      Remember that by this time, the user is curious.
+                      By uploading your resume, we will be able to get a list of jobs most suited to you. Feel free to adjust your job preferences in the filters panel.
                     </p>
                   </div>
                 </div>
@@ -97,40 +93,37 @@ export default function Landing() {
               <div className="pt-6 w-full md:w-4/12 px-4 text-center">
                 <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
                   <div className="px-4 py-5 flex-auto">
-                    <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-emerald-400">
-                      <i className="fas fa-fingerprint"></i>
+                    <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-lightBlue-400">
+                      <i className="fas fa-award"></i>
                     </div>
-                    <h6 className="text-xl font-semibold">Verified Company</h6>
+                    <h6 className="text-xl font-semibold">Profile Page</h6>
                     <p className="mt-2 mb-4 text-blueGray-500">
-                      Write a few lines about each one. A paragraph describing a
-                      feature will be enough. Keep you user engaged!
+                      Head to the profile page to update your job preferences.
                     </p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="flex flex-wrap items-center mt-32">
+            <div className="flex flex-wrap items-center mt-33">
               <div className="w-full md:w-5/12 px-4 mr-auto ml-auto">
-                <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-white">
+                {/* <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-white">
                   <i className="fas fa-user-friends text-xl"></i>
-                </div>
+                </div> */}
                 <h3 className="text-3xl mb-2 font-semibold leading-normal">
-                  Working with us is a pleasure
+                  About Us
                 </h3>
                 <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">
-                  Don't let your uses guess by attaching tooltips and popoves to
-                  any element. Just make sure you enable them first via
-                  JavaScript.
+                  Our team has desgined a job portal that makes job applications easier. 
                 </p>
                 <p className="text-lg font-light leading-relaxed mt-0 mb-4 text-blueGray-600">
-                  The kit comes with three pre-built pages to help you get
-                  started faster. You can change the text and images and you're
-                  good to go. Just make sure you enable them first via
-                  JavaScript.
+                  To get started, upload your resume so we could search through your resume to find your 
+                  relevant skills. Additionally, head to your profile page to update your preferences 
+                  about your future job. We would find jobs that best suit you based on the information 
+                  provided.
                 </p>
                 <Link to="/" className="font-bold text-blueGray-700 mt-8">
-                  Check Notus React!
+                  Start Your Job Search Now!
                 </Link>
               </div>
 
@@ -157,9 +150,8 @@ export default function Landing() {
                       Top Notch Services
                     </h4>
                     <p className="text-md font-light mt-2 text-white">
-                      The Arctic Ocean freezes every winter and much of the
-                      sea-ice then thaws every summer, and that process will
-                      continue whatever happens.
+                      We have built a model that is able to retrieve the best 
+                      matches based on previous experience and preference. 
                     </p>
                   </blockquote>
                 </div>
@@ -168,7 +160,7 @@ export default function Landing() {
           </div>
         </section>
 
-        <section className="relative py-20">
+        {/* <section className="relative py-20">
           <div
             className="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20 h-20"
             style={{ transform: "translateZ(0)" }}
@@ -414,9 +406,9 @@ export default function Landing() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
 
-        <section className="pb-20 relative block bg-blueGray-800">
+        {/* <section className="pb-20 relative block bg-blueGray-800">
           <div
             className="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20 h-20"
             style={{ transform: "translateZ(0)" }}
@@ -489,8 +481,10 @@ export default function Landing() {
               </div>
             </div>
           </div>
-        </section>
-        <section className="relative block py-24 lg:pt-0 bg-blueGray-800">
+        </section> */}
+
+        
+        {/* <section className="relative block py-24 lg:pt-0 bg-blueGray-800">
           <div className="container mx-auto px-4">
             <div className="flex flex-wrap justify-center lg:-mt-64 -mt-48">
               <div className="w-full lg:w-6/12 px-4">
@@ -558,7 +552,7 @@ export default function Landing() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
       </main>
       <Footer />
     </>
