@@ -13,3 +13,4 @@ seaborn
 nltk
 openpyxl
 undetected-chromedriver
+transformers
