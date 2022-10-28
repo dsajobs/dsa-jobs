@@ -4,7 +4,7 @@ from sklearn.cluster import KMeans
 from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler
 # Load in the data
-df = pd.read_csv('/Users/derekyuen/Desktop/NUS/Y3S1/DSA3101/Github/dsa3101-project-06-backend/survey.xlsx')
+df = pd.read_csv('data/survey.xlsx')
 # Standardize the data to have a mean of ~0 and a variance of 1
 X_std = StandardScaler().fit_transform(df)
 # Create a PCA instance: pca
