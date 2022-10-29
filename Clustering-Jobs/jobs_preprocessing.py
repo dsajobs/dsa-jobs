@@ -1,6 +1,6 @@
 from job_summary_dataset import JobSummaryDataset
 import torch
-from transformers import AutoTokenizer, AutoModel
+from transformers import AutoTokenizer
 from transformers import AutoModelForSeq2SeqLM
 from transformers import DataCollatorForSeq2Seq
 from transformers import Seq2SeqTrainer
@@ -41,3 +41,5 @@ trainer = Seq2SeqTrainer(
 )
 
 trainer.train()
+
+model.save_pretrained(f"./DL-Models/{model_name}")

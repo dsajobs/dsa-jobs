@@ -1,6 +1,4 @@
 from torch.utils.data import Dataset
-from torch import device
-import torch
 import pandas as pd
 
 class JobSummaryDataset(Dataset):
