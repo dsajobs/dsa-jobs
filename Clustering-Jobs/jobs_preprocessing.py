@@ -4,40 +4,40 @@ from transformers import AutoTokenizer, AutoModel
 from transformers import AutoModelForSeq2SeqLM
 from transformers import DataCollatorForSeq2Seq
 from transformers import Seq2SeqTrainer
+from transformers import Seq2SeqTrainingArguments
 
 dat = "Clustering-Jobs/data/tc_jobs_data.xls"
 
-max_input_length = 768
-max_target_length = 256
+device = torch.device('cuda:0') if torch.cuda.is_available() else torch.device("cpu")
 
-tokenizer = AutoTokenizer.from_pretrained("t5-small", max_length = max_input_length)
+tokenizer = AutoTokenizer.from_pretrained("t5-small")
 
 dataset = JobSummaryDataset(dat, tokenizer)
 
-model = AutoModelForSeq2SeqLM.from_pretrained('t5-small')
+model = AutoModelForSeq2SeqLM.from_pretrained("t5-small").to(device)
 
-from transformers import Seq2SeqTrainingArguments
+data_collator = DataCollatorForSeq2Seq(tokenizer=tokenizer, model=model)
 
 batch_size = 8
 num_train_epochs = 1
-model_name = 'mt5-small-model'
 
-args = Seq2SeqTrainingArguments(
-    output_dir=f"Clustering-Jobs/DL-Models/{model_name}-V1",
-    evaluation_strategy="epoch",
-    learning_rate=5.6e-5,
-    per_device_train_batch_size=batch_size,
-    per_device_eval_batch_size=batch_size,
+model_name = 't5-small-model'
+
+training_args = Seq2SeqTrainingArguments(
+    output_dir=f"./DL-Models/{model_name}",
+    learning_rate=2e-5,
+    per_device_train_batch_size=16,
     weight_decay=0.01,
     save_total_limit=3,
-    num_train_epochs=num_train_epochs,
-    predict_with_generate=True,
+    num_train_epochs=3,
 )
 
 trainer = Seq2SeqTrainer(
-    model,
-    args,
+    model=model,
+    args=training_args,
     train_dataset=dataset,
+    tokenizer=tokenizer,
+    data_collator=data_collator,
 )
 
 trainer.train()
