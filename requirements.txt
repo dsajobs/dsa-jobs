@@ -15,3 +15,5 @@ openpyxl
 undetected-chromedriver
 transformers
 xlrd
+sentencepiece
+datasets
