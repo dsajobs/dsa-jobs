@@ -1,8 +1,43 @@
+import addSkills from "addSkills";
 import React from "react";
+import {useState} from "react";
+import ShowSkills from "ShowSkills";
 
-// components
+const CardSettings = () => {
+  
 
-export default function CardSettings() {
+
+  const [skill,setSkill] = useState('');
+  const [skillsets,setSkillSets] = useState('');
+  const [showSkills,setshowSkills] = useState('');
+
+  const handleChange = (e) => {
+    console.log(e.target.value);
+    //const value = e.target.value;
+    //const name = e.target.name;
+    //setSkill((prev) =>{
+      //  return { ...prev,[name]:value}
+    //})
+    setSkill(e.target.value);
+  }
+
+  const handleSubmit =(e) => {
+    alert(skill);
+    e.preventDefault();
+    //alert();
+    setSkill( ... [skill]);
+    setSkillSets([skillsets, " ", skill]);
+    console.log(ShowSkills(skillsets));
+  }
+
+const handleRemove = (e) => {
+  e.preventDefault();
+  return 0;
+}
+
+
+
+
   return (
     <>
       <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-100 border-0">
@@ -115,7 +150,7 @@ export default function CardSettings() {
                     City
                   </label>
                   <input
-                    type="email"
+                    type="text"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                     defaultValue="New York"
                   />
@@ -165,14 +200,27 @@ export default function CardSettings() {
                     className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                     htmlFor="grid-password"
                   >
-                    About me
+                    Skills
                   </label>
-                  <textarea
-                    type="text"
-                    className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    defaultValue="A beautiful UI Kit and Admin for React & Tailwind CSS. It is Free and Open Source."
-                    rows="4"
-                  ></textarea>
+                  
+                  <label
+                    className ="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                    htmlFor = "grid-password"
+                    >
+                      {skillsets}
+                    </label>
+                  <input
+                      type="text"
+                      className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                      placeholder="Skill"
+                      name = "skillset"
+                      onChange={handleChange}
+                    />
+                    <button
+                      className="bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                      onClick={handleSubmit}
+                    >
+                      Add skill</button>
                 </div>
               </div>
             </div>
@@ -181,4 +229,7 @@ export default function CardSettings() {
       </div>
     </>
   );
-}
+
+  }
+
+  export default CardSettings

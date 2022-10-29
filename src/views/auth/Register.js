@@ -18,6 +18,7 @@ const handleChange = (e) => {
 
 const handleSubmit = () => {
   createProfile(details.email,details.password);
+  alert("tryhere");
 }
 
 //console.log(localStorage.getItem("profile",JSON.parse(details)));
