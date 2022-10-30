@@ -1,28 +1,59 @@
-from flask import Flask
-from flask_restful import Resource, Api, reqparse
-import pandas as pd
-import ast
+import os
+import json
+from flask import Flask, flash, request, redirect, url_for, jsonify
+from werkzeug.utils import secure_filename
+
+UPLOAD_FOLDER = 'data/resumes'
+ALLOWED_EXTENSIONS = {'pdf'}
+
 app = Flask(__name__)
-api = Api(app)
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-users.path = '/Users/derekyuen/Desktop/NUS/Y3S1/DSA3101/Github/flask/users.csv'
-locations.path = '/Users/derekyuen/Desktop/NUS/Y3S1/DSA3101/Github/flask/locations.csv'
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-class Users(Resource):
-    def get(self):
-        data = pd.read_csv(users.path)
-        data = data.to_dict()
-        return {'data' : data} , 200
+@app.route('dsa-jobs/users/upload', methods=['GET', 'POST'])
+def upload_file():
+    if request.method == 'POST':
+        # check if the post request has the file part
+        if 'file' not in request.files:
+            flash('No file part')
+            return redirect(request.url)
+        file = request.files['file']
+        # If the user does not select a file, the browser submits an
+        # empty file without a filename.
+        if file.filename == '':
+            flash('No selected file')
+            return redirect(request.url)
+        if file and allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            return redirect(url_for('download_file', name=filename))
+    return '''
+    <!doctype html>
+    <title>Upload new File</title>
+    <h1>Upload new File</h1>
+    <form method=post enctype=multipart/form-data>
+      <input type=file name=file>
+      <input type=submit value=Upload>
+    </form>
+    '''
 
+@app.route('dsa-jobs/jobs/upload', methods=['PUT'])
+def upload_job():
+    record = json.loads(request.data)
+    with open('data/jobs.txt', 'r') as f:
+        data = f.read()
+    if not data:
+        records = [record]
+    else:
+        records = json.loads(data)
+        records.append(record)
+    with open('data/jobs.txt', 'w') as f:
+        f.write(json.dumps(records, indent=2))
+    return jsonify(record)
+
+@app.route('dsa-jobs/data/listings', method = ["GET"])
+def get_jobs():
     pass
-    
-class Locations(Resource):
-    # methods go here
-    pass
-    
-api.add_resource(Users, '/users')  # '/users' is our entry point for Users
-api.add_resource(Locations, '/locations')  # and '/locations' is our entry point for Locations
-
-if __name__ == '__main__':
-    # run app in debug mode on port 5050
-    app.run(debug=True, port=5050)
