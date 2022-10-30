@@ -28,6 +28,6 @@ for i in [linkedin_jobs, jdb_bi, jdb_da, jdb_ds]:
 
 out = pd.DataFrame.from_dict(out_dict)
 
-out["labels"] = KMeans(n_clusters = 3, random_state=3101).fit(np.array(out_dict["encoding"])).labels_
+out["labels"] = KMeans(n_clusters = 5, random_state=3101).fit(np.array(out_dict["encoding"])).labels_
 
 out.to_csv("Clustering-Jobs/data/processed_jobs.csv")
