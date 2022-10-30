@@ -54,6 +54,6 @@ scaled_vals = StandardScaler().fit_transform(no_time_at_all_df.values)
 pca = PCA(n_components = 3)
 new_dat = pca.fit_transform(scaled_vals)
 
-df["cluster"] = KMeans(n_clusters = 4).fit(new_dat).labels_
+df["cluster"] = KMeans(n_clusters = 3, random_state=3101).fit(new_dat).labels_
 
 df.to_csv("Clustering-People/data/processed_survey.csv")
