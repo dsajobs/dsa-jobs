@@ -41,15 +41,9 @@ def upload_file():
 @app.route('/dsa-jobs/jobs/upload', methods=['PUT'])
 def upload_job():
     record = json.loads(request.data)
-    with open('data/jobs.txt', 'r') as f:
-        data = f.read()
-    if not data:
-        records = [record]
-    else:
-        records = json.loads(data)
-        records.append(record)
-    with open('data/jobs.txt', 'w') as f:
-        f.write(json.dumps(records, indent=2))
+    data = pd.read_csv("data/listings.csv")
+    data.concat(pd.DataFrame.from_records(record))
+    data.to_csv("data/listings.csv")
     return jsonify(record)
 
 @app.route('/dsa-jobs/data/listings', method = ["GET"])
