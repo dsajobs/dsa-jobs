@@ -2,6 +2,7 @@ import os
 import json
 from flask import Flask, flash, request, redirect, url_for, jsonify
 from werkzeug.utils import secure_filename
+import pandas as pd
 
 UPLOAD_FOLDER = 'data/resumes'
 ALLOWED_EXTENSIONS = {'pdf'}
@@ -13,16 +14,13 @@ def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-@app.route('dsa-jobs/users/upload', methods=['GET', 'POST'])
+@app.route('/dsa-jobs/users/upload', methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
-        # check if the post request has the file part
         if 'file' not in request.files:
             flash('No file part')
             return redirect(request.url)
         file = request.files['file']
-        # If the user does not select a file, the browser submits an
-        # empty file without a filename.
         if file.filename == '':
             flash('No selected file')
             return redirect(request.url)
@@ -40,7 +38,7 @@ def upload_file():
     </form>
     '''
 
-@app.route('dsa-jobs/jobs/upload', methods=['PUT'])
+@app.route('/dsa-jobs/jobs/upload', methods=['PUT'])
 def upload_job():
     record = json.loads(request.data)
     with open('data/jobs.txt', 'r') as f:
@@ -54,6 +52,8 @@ def upload_job():
         f.write(json.dumps(records, indent=2))
     return jsonify(record)
 
-@app.route('dsa-jobs/data/listings', method = ["GET"])
+@app.route('/dsa-jobs/data/listings', method = ["GET"])
 def get_jobs():
-    pass
+    listings = pd.read_csv("data/listings.csv")
+    cluster_num = dict(request.args)["clusterNum"]    
+    return jsonify(listings[listings["cluster_num"] == cluster_num].to_dict(orient = "records"))
