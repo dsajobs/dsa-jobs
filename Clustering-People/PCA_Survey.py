@@ -57,7 +57,7 @@ scaled_vals = StandardScaler().fit_transform(no_time_at_all_df.values)
 
 pca = PCA(n_components = 3)
 new_dat = pca.fit_transform(scaled_vals)
-df["cluster"] = KMeans(n_clusters = 3, random_state=3101).fit(new_dat).labels_
+df["cluster"] = KMeans(n_clusters = 4, random_state=3101).fit(new_dat).labels_
 
 labels = df["cluster"]
 pca_scale = pd.DataFrame(new_dat, columns=['pc1','pc2','pc3'])
@@ -65,7 +65,7 @@ clusters_pca_scale = pd.concat([pca_scale, pd.DataFrame({'pca_clusters':labels})
 df.to_csv("Clustering-People/data/processed_survey.csv")
 
 plt.figure(figsize = (10,10))
-sns.scatterplot(clusters_pca_scale.iloc[:,0],clusters_pca_scale.iloc[:,1], hue=labels, palette='Set1', s=100).set_title('KMeans Clusters (3) Derived from PCA', fontsize=15)
+sns.scatterplot(clusters_pca_scale.iloc[:,0],clusters_pca_scale.iloc[:,1], hue=labels, palette='Set1', s=100).set_title('KMeans Clusters (4) Derived from PCA', fontsize=15)
 plt.legend()
 plt.show()
 
