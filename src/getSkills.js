@@ -1,8 +1,16 @@
-const getSkills = (person) => {
-    var skillsets = JSON.parse(localStorage.getItem('skillsets'));
-    alert("hey!");
-    alert(skillsets);
-    return skillsets;
+import React from 'react';
+
+class getSKills extends React.Component{
+    constructor(array){
+        super();
+        this.array = array;
+    }
+
+
 }
 
-export default getSkills
+export default function getSkills(){
+    return <div>
+        <getSkills/>
+    </div>
+}

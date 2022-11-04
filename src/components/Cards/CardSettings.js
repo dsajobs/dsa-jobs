@@ -1,4 +1,4 @@
-import addSkills from "addSkills";
+
 import React from "react";
 import {useState} from "react";
 import ShowSkills from "ShowSkills";
@@ -8,8 +8,8 @@ const CardSettings = () => {
 
 
   const [skill,setSkill] = useState('');
-  const [skillsets,setSkillSets] = useState('');
-  const [showSkills,setshowSkills] = useState('');
+  const [skillsets,setSkillSets] = useState([]);
+  const [showSkills,setshowSkills] = useState([]);
 
   const handleChange = (e) => {
     console.log(e.target.value);
@@ -26,8 +26,9 @@ const CardSettings = () => {
     e.preventDefault();
     //alert();
     setSkill( ... [skill]);
-    setSkillSets([skillsets, " ", skill]);
-    console.log(ShowSkills(skillsets));
+    //setSkillSets([skillsets, " ", skill]);
+    setSkillSets([].concat(skillsets,skill +" ") );
+    console.log(skillsets);
   }
 
 const handleRemove = (e) => {
@@ -36,6 +37,7 @@ const handleRemove = (e) => {
 }
 
 
+const show = skillsets
 
 
   return (
@@ -203,12 +205,13 @@ const handleRemove = (e) => {
                     Skills
                   </label>
                   
-                  <label
+                  <div
                     className ="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                     htmlFor = "grid-password"
                     >
                       {skillsets}
-                    </label>
+                    </div>
+                    <show/>
                   <input
                       type="text"
                       className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
