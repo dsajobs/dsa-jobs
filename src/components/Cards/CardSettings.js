@@ -1,8 +1,56 @@
+
 import React from "react";
+import {useState} from "react";
+import ShowSkills from "ShowSkills";
 
-// components
+const CardSettings = () => {
+  
 
-export default function CardSettings() {
+
+  const [skill,setSkill] = useState('');
+  const [skillsets,setSkillSets] = useState([]);
+  const [remove,setRemove] = useState([]);
+
+  const handleChange = (e) => {
+    console.log(e.target.value);
+    //const value = e.target.value;
+    //const name = e.target.name;
+    //setSkill((prev) =>{
+      //  return { ...prev,[name]:value}
+    //})
+    setSkill(e.target.value);
+  }
+
+  const handleSubmit =(e) => {
+    //alert(skill);
+    e.preventDefault();
+    //alert();
+    setSkill( ... [skill]);
+    //setSkillSets([skillsets, " ", skill]);
+    setSkillSets([].concat(skillsets,skill +" ") );
+    alert(skillsets);
+  }
+
+const handleRemove = (e) => {
+  e.preventDefault();
+  const toBeRemoved = e.target.value;
+  const update =[];
+  for (var i=0; i < skillsets.length; i++){
+    if (skillsets[i] != toBeRemoved){
+      alert(skillsets[i]);
+      update.push(skillsets[i]);
+    }
+  }
+
+  setSkillSets(update);
+
+}
+
+
+
+const show = skillsets
+
+
   return (
     <>
       <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-100 border-0">
@@ -115,7 +163,7 @@ export default function CardSettings() {
                     City
                   </label>
                   <input
-                    type="email"
+                    type="text"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                     defaultValue="New York"
                   />
@@ -165,14 +213,50 @@ export default function CardSettings() {
                     className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                     htmlFor="grid-password"
                   >
-                    About me
+                    Skills
                   </label>
-                  <textarea
-                    type="text"
-                    className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    defaultValue="A beautiful UI Kit and Admin for React & Tailwind CSS. It is Free and Open Source."
-                    rows="4"
-                  ></textarea>
+                  
+                  <div
+                  className="block text-blueGray-600 text-xs font-bold mb-2"
+                    >
+                      {
+            skillsets.length === 0 ?(
+              <p className="font-light"> Add a Skill </p>
+            ):skillsets.map((skill1) => <div
+            ><span
+            className="text-lightBlue-600 bg-lightBlue-100 m-2 p-2 rounded-full text-center text-xs font-semibold"
+            > 
+            {skill1}
+            <button
+            className="text-lightBlue-600 bg-lightBlue-100 m-2 p-2 rounded-full text-center text-xs font-semibold"
+            onClick ={() => handleRemove(skill1)}
+            > X </button>
+                        </span>
+            </div>)/*
+            <span onClick={() =>
+                  handleFilterClick(filter)}
+                  className="text-lightBlue-600 bg-lightBlue-100 m-2 p-2 rounded-full text-center text-xs font-semibold"
+                  >
+                  {filter}
+                  <span className='text-lightBlue-600 -mr-4 font-semibold text-lg-special pl-2h pr-1'>x</span>
+                </span>)
+            */
+        }
+          
+                    </div>
+                    <show/>
+                  <input
+                      type="text"
+                      className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                      placeholder="Skill"
+                      name = "skillset"
+                      onChange={handleChange}
+                    />
+                    <button
+                      className="bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                      onClick={handleSubmit}
+                    >
+                      Add skill</button>
                 </div>
               </div>
             </div>
@@ -181,4 +265,7 @@ export default function CardSettings() {
       </div>
     </>
   );
-}
+
+  }
+
+  export default CardSettings

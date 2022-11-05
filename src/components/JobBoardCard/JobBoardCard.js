@@ -15,7 +15,6 @@ import React from 'react';
     
 id: 4,
     
-
     className="relative text-white "> 
 */
 
@@ -92,5 +91,5 @@ const JobBoardCard = ({
     )
 };
 
-export default JobBoardCard;
 
+export default JobBoardCard;
