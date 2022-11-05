@@ -9,7 +9,7 @@ const CardSettings = () => {
 
   const [skill,setSkill] = useState('');
   const [skillsets,setSkillSets] = useState([]);
-  const [showSkills,setshowSkills] = useState([]);
+  const [remove,setRemove] = useState([]);
 
   const handleChange = (e) => {
     console.log(e.target.value);
@@ -22,19 +22,30 @@ const CardSettings = () => {
   }
 
   const handleSubmit =(e) => {
-    alert(skill);
+    //alert(skill);
     e.preventDefault();
     //alert();
     setSkill( ... [skill]);
     //setSkillSets([skillsets, " ", skill]);
     setSkillSets([].concat(skillsets,skill +" ") );
-    console.log(skillsets);
+    alert(skillsets);
   }
 
 const handleRemove = (e) => {
   e.preventDefault();
-  return 0;
+  const toBeRemoved = e.target.value;
+  const update =[];
+  for (var i=0; i < skillsets.length; i++){
+    if (skillsets[i] != toBeRemoved){
+      alert(skillsets[i]);
+      update.push(skillsets[i]);
+    }
+  }
+
+  setSkillSets(update);
+
 }
+
 
 
 const show = skillsets
@@ -206,10 +217,32 @@ const show = skillsets
                   </label>
                   
                   <div
-                    className ="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                    htmlFor = "grid-password"
+                  className="block text-blueGray-600 text-xs font-bold mb-2"
                     >
-                      {skillsets}
+                      {
+            skillsets.length === 0 ?(
+              <p className="font-light"> Add a Skill </p>
+            ):skillsets.map((skill1) => <div
+            ><span
+            className="text-lightBlue-600 bg-lightBlue-100 m-2 p-2 rounded-full text-center text-xs font-semibold"
+            > 
+            {skill1}
+            <button
+            className="text-lightBlue-600 bg-lightBlue-100 m-2 p-2 rounded-full text-center text-xs font-semibold"
+            onClick ={() => handleRemove(skill1)}
+            > X </button>
+                        </span>
+            </div>)/*
+            <span onClick={() =>
+                  handleFilterClick(filter)}
+                  className="text-lightBlue-600 bg-lightBlue-100 m-2 p-2 rounded-full text-center text-xs font-semibold"
+                  >
+                  {filter}
+                  <span className='text-lightBlue-600 -mr-4 font-semibold text-lg-special pl-2h pr-1'>x</span>
+                </span>)
+            */
+        }
+          
                     </div>
                     <show/>
                   <input
