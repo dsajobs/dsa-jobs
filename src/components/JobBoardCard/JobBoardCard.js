@@ -91,4 +91,5 @@ const JobBoardCard = ({
     )
 };
 
+
 export default JobBoardCard;
