@@ -3,6 +3,7 @@ import React from "react";
 // components
 
 import CardTable from "components/Cards/CardTable.js";
+import Calendar from "../../components/Calendar/Calendar";
 
 export default function Tables() {
   return (
