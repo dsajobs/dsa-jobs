@@ -28,7 +28,7 @@ export default function Footer() {
             <div className="w-full  px-4">
               <h4 className="text-3xl font-semibold">More useful resources below</h4>
               <h5 className="text-lg mt-0 mb-2 text-blueGray-600">
-                Find us on any of these platforms, we respond 1-2 business days.
+                Find us on any of these platforms, we will respond within 1-2 working days.
               </h5>
               {/* <div className="mt-6 lg:mb-0 mb-6">
                 <button
