@@ -2,9 +2,14 @@
 import React from "react";
 import {useState} from "react";
 import ShowSkills from "ShowSkills";
+import SalaryDropDown from "components/Dropdowns/SalaryDropDown.js";
+import { Link } from "react-router-dom";
+import PagesDropdown from "components/Dropdowns/PagesDropdown.js";
+import addPreferences from "addPreferences";
 
 const CardSettings = () => {
-  
+
+
   const btn = document.getElementById('skillBtn');
   /*btn.addEventListener('click', function handleClick(event) {
     event.preventDefault();
@@ -14,7 +19,12 @@ const CardSettings = () => {
   const [skill,setSkill] = useState('');
   const [skillsets,setSkillSets] = useState([]);
   const [remove,setRemove] = useState([]);
-
+  const [salaryBarOpen, setSalaryBarOpen] = React.useState(false);
+  const [currentSalary, setCurrentSalary] = useState(0);
+  
+  const [currentDistance, setCurrentDistance] = useState(0);
+  const [thirdMetric, setThirdMetric] = useState(0);
+  const [fourthMetric, setFourthMetric] = useState(0);
   const handleChange = (e) => {
     console.log(e.target.value);
     //const value = e.target.value;
@@ -42,14 +52,34 @@ const handleRemove = (e) => {
       update.push(skillsets[i]);
     }
   }
-
   setSkillSets(update);
-
 }
 
+const handlePreferences =(e) => {
+  e.preventDefault();
+  const preferences = {sal: currentSalary,dist:currentDistance,third:thirdMetric,fourth:fourthMetric,skills:skillsets};
+  addPreferences(preferences);
+}
 
+const handleSalary = (e) =>{
+  e.preventDefault();
+  setCurrentSalary(e.value);
+}
 
-const show = skillsets
+const handleDistance = (e) =>{
+  e.preventDefault();
+  setCurrentDistance(e.value);
+}
+
+const handle3rd = (e) =>{
+  e.preventDefault();
+  setThirdMetric(e.value);
+}
+
+const handle4th = (e) =>{
+  e.preventDefault();
+  setFourthMetric(e.value);
+}
 
 
   return (
@@ -83,7 +113,7 @@ const show = skillsets
                   <input
                     type="text"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    defaultValue="lucky.jesse"
+                    defaultValue="NicTan"
                   />
                 </div>
               </div>
@@ -98,7 +128,7 @@ const show = skillsets
                   <input
                     type="email"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    defaultValue="jesse@example.com"
+                    defaultValue="NicTan@ghotmail.com"
                   />
                 </div>
               </div>
@@ -113,7 +143,7 @@ const show = skillsets
                   <input
                     type="text"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    defaultValue="Lucky"
+                    defaultValue="Nicholas"
                   />
                 </div>
               </div>
@@ -128,7 +158,7 @@ const show = skillsets
                   <input
                     type="text"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    defaultValue="Jesse"
+                    defaultValue="Tan"
                   />
                 </div>
               </div>
@@ -151,7 +181,7 @@ const show = skillsets
                   <input
                     type="text"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    defaultValue="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09"
+                    defaultValue="2 College Ave West, Stephen Riady Centre"
                   />
                 </div>
               </div>
@@ -166,7 +196,7 @@ const show = skillsets
                   <input
                     type="text"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    defaultValue="New York"
+                    defaultValue="Singapore"
                   />
                 </div>
               </div>
@@ -181,7 +211,7 @@ const show = skillsets
                   <input
                     type="text"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    defaultValue="United States"
+                    defaultValue="Singapore"
                   />
                 </div>
               </div>
@@ -196,7 +226,7 @@ const show = skillsets
                   <input
                     type="text"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    defaultValue="Postal Code"
+                    defaultValue="138607"
                   />
                 </div>
               </div>
@@ -205,7 +235,7 @@ const show = skillsets
             <hr className="mt-6 border-b-1 border-blueGray-300" />
 
             <h6 className="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
-              About Me
+              Preferences
             </h6>
             <div className="flex flex-wrap">
               <div className="w-full lg:w-12/12 px-4">
@@ -245,7 +275,6 @@ const show = skillsets
         }
           
                     </div>
-                    <show/>
                   <input
                       type="text"
                       className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
@@ -261,11 +290,97 @@ const show = skillsets
                     >
                       Add skill</button>
                 </div>
+                <br></br>
               </div>
             </div>
+            <div className="flex flex-wrap">
+              <div className="w-full lg:w-6/12 px-4">
+                <div className="relative w-full mb-3">
+                  <label
+                    className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                    htmlFor="grid-password"
+                  >
+                    Salary
+                  </label>
+                  <select id = "salary" value={currentSalary} defaultValue={currentSalary} onChange={handleSalary}>
+                      <option value="Choose Salary11"> Choose Salary</option>
+                      <option value="1"
+                      //onClick= {setCurrentSalary("1000-2000")}
+                      >{'<'}1000</option>
+                      <option value="2">1000-3000</option>
+                      <option value="3">3000-5000</option>
+                      <option value="4">{'>'}5000</option>
+                  </select>
+                </div>
+              </div>
+              <div className="w-full lg:w-6/12 px-4">
+                <div className="relative w-full mb-3">
+                  <label
+                    className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                    htmlFor="grid-password"
+                  >
+                    Distance
+                  </label>
+                  <select id = "distance" value={currentDistance} defaultValue={currentDistance}  onChange={handleDistance}>
+                      <option value="Choose Distance"> Choose Distance</option>
+                      <option value="1">{'<'}1km</option>
+                      <option value="2">1000-3000</option>
+                      <option value="3">3000-5000</option>
+                      <option value="4">{'>'}5000</option>
+                  </select>
+                  
+                </div>
+              </div>
+              <div className="w-full lg:w-6/12 px-4">
+                <div className="relative w-full mb-3">
+                  <label
+                    className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                    htmlFor="grid-password"
+                  >
+                    First Name
+                  </label>
+                  <select id = "3rdMetric" value={thirdMetric} defaultValue={thirdMetric}  onChange={handle3rd}>
+                      <option value="3rd Metric"> 3rd Metric   </option>
+                      <option value="1">{'<'}1km</option>
+                      <option value="2">1000-3000</option>
+                      <option value="3">3000-5000</option>
+                      <option value="4">{'>'}5000</option>
+                  </select>
+                </div>
+              </div>
+              <div className="w-full lg:w-6/12 px-4">
+                <div className="relative w-full mb-3">
+                  <label
+                    className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                    htmlFor="grid-password"
+                  >
+                    Last Name
+                  </label>
+                  <select id = "4thMetric" value={fourthMetric} defaultValue={fourthMetric}  onChange={handle4th}>
+                      <option value="Choose 4th Metric   "> 4th Metric</option>
+                      <option value="1">{'<'}1km</option>
+                      <option value="2">1000-3000</option>
+                      <option value="3">3000-5000</option>
+                      <option value="4">{'>'}5000</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <hr className="mt-6 border-b-1 border-blueGray-300" />
+
+            <button
+                      className="bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                      onClick={handlePreferences}
+                      id="PrefBtn"
+                    >
+                      Apply Preferences</button>
           </form>
         </div>
+        
       </div>
+
+      
     </>
   );
 
