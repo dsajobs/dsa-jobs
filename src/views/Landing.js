@@ -30,9 +30,12 @@ export default function Landing(props) {
     const formData = createFormData();
   
     try {
-      axios.post('https://some-api.com', formData, {
-        'content-type': 'multipart/form-data',
-      });
+      // axios.post("../data/", formData, {
+      //   'content-type': 'multipart/form-data',
+      // });
+      localStorage.setItem("resume", formData);
+      
+      console.log(localStorage.getItem("resume"));
     } catch (error) {
       console.error('Failed to submit files.');
     }
@@ -58,7 +61,7 @@ export default function Landing(props) {
             <div className="items-center flex flex-wrap">
               <div className="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
                 <div className="pr-12">
-                  <h1 className="text-white font-semibold text-5xl">
+                  <h1 className="text-white font-semibold text-3xl">
                     Welcome!
                   </h1>
                   <p className="mt-4 text-lg text-blueGray-200">
