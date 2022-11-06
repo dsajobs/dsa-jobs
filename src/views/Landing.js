@@ -5,7 +5,7 @@ import axios from 'axios';
 import useFileUpload from 'react-use-file-upload';
 // components
 
-import Navbar from "components/Navbars/AuthNavbar.js";
+import Navbar from "components/Navbars/AuthNavbarLogin.js";
 import Footer from "components/Footers/Footer.js";
 
 
