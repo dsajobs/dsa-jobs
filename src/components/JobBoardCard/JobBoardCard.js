@@ -1,26 +1,9 @@
 import React from 'react';
-
-/*
-    Wrapper,
-    Column,
-    CompanyInfoWrapper,    
-    CompanyName,
-    JobTitle,
-    MetaInfoWrapper,
-    MetaInfo,
-    MetaInfoDot,
-    Skill,
-    NewJob,
-    FeaturedJob,
-    
-id: 4,
-    
-
-    className="relative text-white "> 
-*/
+import Chart from 'chart.js';
 
 const JobBoardCard = ({
     job:{
+        id,
         company,
         logo,
         isNew,
@@ -34,7 +17,11 @@ const JobBoardCard = ({
         location,
         languages,
         tools,
-        skillset
+        skillset,
+        distanceMatch,
+        salaryMatch,
+        toolsMatch,
+        skillsetMatch
     },handleTagClick,
 }) => {
         const tags = [];
@@ -51,6 +38,43 @@ const JobBoardCard = ({
             tags.push(...skillset);
         }
 
+        const labels = [
+            'Distance','Salary','Tools','Skillset'
+        ];
+        
+        const data = {
+        labels: labels,
+        datasets: [{
+            label: 'My First dataset',
+            data: [distanceMatch,salaryMatch,toolsMatch,skillsetMatch],
+            fill: true,
+            backgroundColor: 'rgba(2, 132, 199, 0.2)',
+            borderColor: 'rgba(2, 132, 199, 132)',
+            pointBackgroundColor: 'rgb(255, 99, 132)',
+            pointBorderColor: '#fff',
+            pointHoverBackgroundColor: '#fff',
+            pointHoverBorderColor: 'rgb(255, 99, 132)'
+          }]
+        };
+        
+        const config = {
+        type: 'radar',
+        data: data,
+        options: {
+            elements: {
+            line: {
+                borderWidth: 3
+            }
+            }
+        },
+        };
+        console.log(id);
+        console.log(data);
+        var myChart = document.getElementById("myChart");
+        new Chart("myChart", config);
+
+        
+        
 
     return (
         <div className = 'flex flex-wrap bg-white shadow-md m-4 p-5 overflow-x-scroll rounded'>
@@ -77,6 +101,11 @@ const JobBoardCard = ({
                             See More
                         </button>
                     </div>
+                    <div>
+                        <canvas id="myChart"></canvas>
+                    </div>
+
+                    
                 </div>
             </div>
 
