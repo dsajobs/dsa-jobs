@@ -63,7 +63,7 @@ export default function Footer() {
                   <span className="block uppercase text-blueGray-500 text-sm font-semibold mb-2">
                     Useful Links
                   </span>
-                  <ul className="list-styled">
+                  <ul className="list-unstyled">
                     <li>
                       <a
                         className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
