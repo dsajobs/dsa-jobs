@@ -5,7 +5,11 @@ import ShowSkills from "ShowSkills";
 
 const CardSettings = () => {
   
-
+  const btn = document.getElementById('skillBtn');
+  /*btn.addEventListener('click', function handleClick(event) {
+    event.preventDefault();
+    document.getElementById('skillset').value = '';
+  })*/
 
   const [skill,setSkill] = useState('');
   const [skillsets,setSkillSets] = useState([]);
@@ -22,13 +26,11 @@ const CardSettings = () => {
   }
 
   const handleSubmit =(e) => {
-    //alert(skill);
     e.preventDefault();
-    //alert();
     setSkill( ... [skill]);
-    //setSkillSets([skillsets, " ", skill]);
     setSkillSets([].concat(skillsets,skill +" ") );
-    alert(skillsets);
+    const field = document.getElementById("skillset");
+    field.value ='';
   }
 
 const handleRemove = (e) => {
@@ -37,7 +39,6 @@ const handleRemove = (e) => {
   const update =[];
   for (var i=0; i < skillsets.length; i++){
     if (skillsets[i] != toBeRemoved){
-      alert(skillsets[i]);
       update.push(skillsets[i]);
     }
   }
@@ -61,7 +62,7 @@ const show = skillsets
               className="bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
               type="button"
             >
-              Settings
+              Upload Resume
             </button>
           </div>
         </div>
@@ -250,11 +251,13 @@ const show = skillsets
                       className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                       placeholder="Skill"
                       name = "skillset"
+                      id="skillset"
                       onChange={handleChange}
                     />
                     <button
                       className="bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
                       onClick={handleSubmit}
+                      id="skillBtn"
                     >
                       Add skill</button>
                 </div>
