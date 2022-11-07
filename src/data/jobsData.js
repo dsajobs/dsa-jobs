@@ -14,7 +14,11 @@ const jobsData = [
       location: 'Clementi',
       languages: ['R', 'Python'],
       tools: ['MySQL', 'Excel'],
-      skills: ['Data extraction','Data processing', 'Data exploration', 'Modelling']
+      skills: ['Data extraction','Data processing', 'Data exploration', 'Modelling'],
+      distanceMatch: 50,
+      salaryMatch: 80,
+      toolsMatch: 90,
+      skillsetMatch: 70
     },
     {
       id: 2,
@@ -31,7 +35,11 @@ const jobsData = [
       location: 'Marina Bay',
       languages: ['Python', 'R'],
       tools: ['Matlab'],
-      skillset: ['Presentation','Data analytics', 'Data exploration']
+      skillset: ['Presentation','Data analytics', 'Data exploration'],
+      distanceMatch: 60,
+      salaryMatch: 80,
+      toolsMatch: 90,
+      skillsetMatch: 70
     },
     {
     id: 3,
@@ -48,7 +56,11 @@ const jobsData = [
     location: 'Harbourfront',
     languages: ['Python', 'R'],
     tools: ['Matlab'],
-    skillset: ['Data science', 'Data exploration']
+    skillset: ['Data science', 'Data exploration'],
+    distanceMatch: 33,
+    salaryMatch: 80,
+    toolsMatch: 90,
+    skillsetMatch: 70
     },
     {
     id: 4,
@@ -65,7 +77,11 @@ const jobsData = [
     location: 'Marina Bay',
     languages: ['Python', 'R'],
     tools: ['Matlab'],
-    skillset: ['Presentation','Data analytics', 'Data exploration']
+    skillset: ['Presentation','Data analytics', 'Data exploration'],
+    distanceMatch: 20,
+    salaryMatch: 90,
+    toolsMatch: 40,
+    skillsetMatch: 70
     },
   ];
   export default jobsData;
