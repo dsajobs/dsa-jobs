@@ -12179,6 +12179,11 @@
   "resolved" "https://registry.npmjs.org/urix/-/urix-0.1.0.tgz"
   "version" "0.1.0"
 
+"url-encrypt@^0.0.5":
+  "integrity" "sha512-8AQuXfbydYBw3QwX6IsKRtCDK0/8O6T8la4r2ngvul7wqMjUWJq8LFBw0y8rZVqpY/O7jQO6xX7BN0wI6fVerQ=="
+  "resolved" "https://registry.npmjs.org/url-encrypt/-/url-encrypt-0.0.5.tgz"
+  "version" "0.0.5"
+
 "url-loader@4.1.1":
   "integrity" "sha512-3BTV812+AVHHOJQO8O5MkWgZ5aosP7GnROJwvzLS9hWDj00lZ6Z0wNak423Lp9PBZN05N+Jk/N5Si8jRAlGyWA=="
   "resolved" "https://registry.npmjs.org/url-loader/-/url-loader-4.1.1.tgz"

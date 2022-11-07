@@ -23,8 +23,8 @@ const CardSettings = () => {
   const [currentSalary, setCurrentSalary] = useState(0);
   
   const [currentDistance, setCurrentDistance] = useState(0);
-  const [thirdMetric, setThirdMetric] = useState(0);
-  const [fourthMetric, setFourthMetric] = useState(0);
+  const [WFH, setWFH] = useState(0);
+  const [industry, setIndustry] = useState(0);
   const handleChange = (e) => {
     console.log(e.target.value);
     //const value = e.target.value;
@@ -57,7 +57,7 @@ const handleRemove = (e) => {
 
 const handlePreferences =(e) => {
   e.preventDefault();
-  const preferences = {sal: currentSalary,dist:currentDistance,third:thirdMetric,fourth:fourthMetric,skills:skillsets};
+  const preferences = {sal: currentSalary,dist:currentDistance,wfh:WFH,ind:industry,skills:skillsets};
   addPreferences(preferences);
 }
 
@@ -71,14 +71,14 @@ const handleDistance = (e) =>{
   setCurrentDistance(e.value);
 }
 
-const handle3rd = (e) =>{
+const handleWFH = (e) =>{
   e.preventDefault();
-  setThirdMetric(e.value);
+  setWFH(e.value);
 }
 
-const handle4th = (e) =>{
+const handleIndustry = (e) =>{
   e.preventDefault();
-  setFourthMetric(e.value);
+  setIndustry(e.value);
 }
 
 
@@ -302,7 +302,8 @@ const handle4th = (e) =>{
                   >
                     Salary
                   </label>
-                  <select id = "salary" value={currentSalary} defaultValue={currentSalary} onChange={handleSalary}>
+                  <select id = "salary" value={currentSalary} defaultValue={currentSalary} onChange={handleSalary}
+                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
                       <option value="Choose Salary11"> Choose Salary</option>
                       <option value="1"
                       //onClick= {setCurrentSalary("1000-2000")}
@@ -321,12 +322,13 @@ const handle4th = (e) =>{
                   >
                     Distance
                   </label>
-                  <select id = "distance" value={currentDistance} defaultValue={currentDistance}  onChange={handleDistance}>
+                  <select id = "distance" value={currentDistance} defaultValue={currentDistance}  onChange={handleDistance}
+                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
                       <option value="Choose Distance"> Choose Distance</option>
-                      <option value="1">{'<'}1km</option>
-                      <option value="2">1000-3000</option>
-                      <option value="3">3000-5000</option>
-                      <option value="4">{'>'}5000</option>
+                      <option value="1">{'<'}5km</option>
+                      <option value="2">5km-10km</option>
+                      <option value="3">10km-20km</option>
+                      <option value="4">{'>'}20km</option>
                   </select>
                   
                 </div>
@@ -337,14 +339,15 @@ const handle4th = (e) =>{
                     className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                     htmlFor="grid-password"
                   >
-                    First Name
+                    WFH Option
                   </label>
-                  <select id = "3rdMetric" value={thirdMetric} defaultValue={thirdMetric}  onChange={handle3rd}>
-                      <option value="3rd Metric"> 3rd Metric   </option>
-                      <option value="1">{'<'}1km</option>
-                      <option value="2">1000-3000</option>
-                      <option value="3">3000-5000</option>
-                      <option value="4">{'>'}5000</option>
+                  <select id = "3rdMetric" value={WFH} defaultValue={WFH}  onChange={handleWFH}
+                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+                      <option value="3rd Metric"> WFH   </option>
+                      <option value="1">Yes</option>
+                      <option value="2">No</option>
+                      <option value="3">No Preference</option>
+                      
                   </select>
                 </div>
               </div>
@@ -354,14 +357,17 @@ const handle4th = (e) =>{
                     className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                     htmlFor="grid-password"
                   >
-                    Last Name
+                    Industry
                   </label>
-                  <select id = "4thMetric" value={fourthMetric} defaultValue={fourthMetric}  onChange={handle4th}>
-                      <option value="Choose 4th Metric   "> 4th Metric</option>
-                      <option value="1">{'<'}1km</option>
-                      <option value="2">1000-3000</option>
-                      <option value="3">3000-5000</option>
-                      <option value="4">{'>'}5000</option>
+                  <select id = "4thMetric" value={industry} defaultValue={industry}  onChange={handleIndustry}
+                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+                      <option value="Choose 4th Metric   "> Choose Industry</option>
+                      <option value="1">HealthCare</option>
+                      <option value="2">Media</option>
+                      <option value="3">Tech</option>
+                      <option value="4">Transportation</option>
+                      <option value="5">Marketing</option>
+                      <option value="6">Cyber Security</option>
                   </select>
                 </div>
               </div>
