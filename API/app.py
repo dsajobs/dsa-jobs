@@ -46,7 +46,7 @@ def upload_job():
     data.to_csv("data/listings.csv")
     return jsonify(record)
 
-@app.route('/dsa-jobs/data/listings', method = ["GET"])
+@app.route('/dsa-jobs/data/listings', methods = ["GET"])
 def get_jobs():
     listings = pd.read_csv("data/listings.csv")
     cluster_num = dict(request.args)["clusterNum"]    
