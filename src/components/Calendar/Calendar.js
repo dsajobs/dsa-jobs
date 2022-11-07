@@ -23,19 +23,6 @@ const Calendar = () => {
           plugins={[dayGridPlugin]}
           events={events}
         />
-        <FullCalendar
-          defaultView="dayGridMonth"
-          // themeSystem="Simplex"
-          // header={{
-          //   left: "prev,next",
-          //   center: "title",
-          //   right: "dayGridMonth,timeGridWeek,timeGridDay",
-          // }}
-          plugins={[dayGridPlugin]}
-          events={events}
-          displayEventEnd="true"
-          eventColor={"#" + Math.floor(Math.random() * 16777215).toString(16)}
-        />
       </div>
     );
   }
