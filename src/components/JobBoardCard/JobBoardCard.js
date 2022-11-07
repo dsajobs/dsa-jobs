@@ -1,6 +1,7 @@
 import React from 'react';
 import Chart from 'chart.js';
 
+
 const JobBoardCard = ({
     job:{
         id,
@@ -121,5 +122,5 @@ const JobBoardCard = ({
     )
 };
 
-export default JobBoardCard;
 
+export default JobBoardCard;

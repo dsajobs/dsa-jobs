@@ -17,7 +17,7 @@ export default function Navbar(props) {
             <img 
             alt="..."
             className="w-5,mr-1"
-            src={require("../../assets/img/NUSLogo.png").default}
+            src={require("../../assets/img/NUSLogo2.png").default}
             />
             <Link
               className="text-black text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase"
@@ -53,16 +53,15 @@ export default function Navbar(props) {
             <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
               {/* <li className="flex items-center">
                 <PagesDropdown />
-              </li>  */}
+              </li> */}
               {/* <li className="flex items-center">
                 <a
                   className="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-                //   href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdemos.creative-tim.com%2Fnotus-react%2F%23%2F"
+                  href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdemos.creative-tim.com%2Fnotus-react%2F%23%2F"
                   target="_blank"
-                  to="/admin/settings"
                 >
-                  {/* <i className="lg:text-blueGray-200 text-blueGray-400 fab fa-facebook text-lg leading-lg " /> 
-                  <span className="lg:hidden inline-block ml-2">Settings</span>
+                  <i className="lg:text-blueGray-200 text-blueGray-400 fab fa-facebook text-lg leading-lg " />
+                  <span className="lg:hidden inline-block ml-2">Share</span>
                 </a>
               </li>
 
@@ -86,35 +85,7 @@ export default function Navbar(props) {
                   <i className="lg:text-blueGray-200 text-blueGray-400 fab fa-github text-lg leading-lg " />
                   <span className="lg:hidden inline-block ml-2">Star</span>
                 </a>
-              </li>  */}
-
-
-              <Link
-                to="/admin/dashboard"
-                className={
-                  "lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-                }
-              >
-                Job Listings
-              </Link>
-
-              <Link
-                to="/admin/settings"
-                className={
-                  "lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-                }
-              >
-                Settings
-              </Link>
-
-              <Link
-                to="/profile"
-                className={
-                  "lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-                }
-              >
-                Profile
-              </Link>
+              </li> */}
 
               <li className="flex items-center">
                 <button
@@ -122,9 +93,9 @@ export default function Navbar(props) {
                   type="button"
                 >
                 <Link
-                  to="/landing"
+                  to="/auth/login"
                 >
-                  Logout
+                  Login
                 </Link>
                   {/* <i className="fas fa-arrow-alt-circle-down"></i> Login */}
                 </button>

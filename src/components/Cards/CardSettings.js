@@ -1,8 +1,87 @@
+
 import React from "react";
+import {useState} from "react";
+import ShowSkills from "ShowSkills";
+import SalaryDropDown from "components/Dropdowns/SalaryDropDown.js";
+import { Link } from "react-router-dom";
+import PagesDropdown from "components/Dropdowns/PagesDropdown.js";
+import addPreferences from "addPreferences";
 
-// components
+const CardSettings = () => {
 
-export default function CardSettings() {
+
+  const btn = document.getElementById('skillBtn');
+  /*btn.addEventListener('click', function handleClick(event) {
+    event.preventDefault();
+    document.getElementById('skillset').value = '';
+  })*/
+
+  const [skill,setSkill] = useState('');
+  const [skillsets,setSkillSets] = useState([]);
+  const [remove,setRemove] = useState([]);
+  const [salaryBarOpen, setSalaryBarOpen] = React.useState(false);
+  const [currentSalary, setCurrentSalary] = useState(0);
+  
+  const [currentDistance, setCurrentDistance] = useState(0);
+  const [WFH, setWFH] = useState(0);
+  const [industry, setIndustry] = useState(0);
+  const handleChange = (e) => {
+    console.log(e.target.value);
+    //const value = e.target.value;
+    //const name = e.target.name;
+    //setSkill((prev) =>{
+      //  return { ...prev,[name]:value}
+    //})
+    setSkill(e.target.value);
+  }
+
+  const handleSubmit =(e) => {
+    e.preventDefault();
+    setSkill( ... [skill]);
+    setSkillSets([].concat(skillsets,skill +" ") );
+    const field = document.getElementById("skillset");
+    field.value ='';
+  }
+
+const handleRemove = (e) => {
+  e.preventDefault();
+  const toBeRemoved = e.target.value;
+  const update =[];
+  for (var i=0; i < skillsets.length; i++){
+    if (skillsets[i] != toBeRemoved){
+      update.push(skillsets[i]);
+    }
+  }
+  setSkillSets(update);
+}
+
+const handlePreferences =(e) => {
+  e.preventDefault();
+  const preferences = {sal: currentSalary,dist:currentDistance,wfh:WFH,ind:industry,skills:skillsets};
+  addPreferences(preferences);
+}
+
+const handleSalary = (e) =>{
+  e.preventDefault();
+  setCurrentSalary(e.value);
+}
+
+const handleDistance = (e) =>{
+  e.preventDefault();
+  setCurrentDistance(e.value);
+}
+
+const handleWFH = (e) =>{
+  e.preventDefault();
+  setWFH(e.value);
+}
+
+const handleIndustry = (e) =>{
+  e.preventDefault();
+  setIndustry(e.value);
+}
+
+
   return (
     <>
       <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-100 border-0">
@@ -13,7 +92,7 @@ export default function CardSettings() {
               className="bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
               type="button"
             >
-              Settings
+              Upload Resume
             </button>
           </div>
         </div>
@@ -34,7 +113,7 @@ export default function CardSettings() {
                   <input
                     type="text"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    defaultValue="lucky.jesse"
+                    defaultValue="NicTan"
                   />
                 </div>
               </div>
@@ -49,7 +128,7 @@ export default function CardSettings() {
                   <input
                     type="email"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    defaultValue="jesse@example.com"
+                    defaultValue="NicTan@ghotmail.com"
                   />
                 </div>
               </div>
@@ -64,7 +143,7 @@ export default function CardSettings() {
                   <input
                     type="text"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    defaultValue="Lucky"
+                    defaultValue="Nicholas"
                   />
                 </div>
               </div>
@@ -79,7 +158,7 @@ export default function CardSettings() {
                   <input
                     type="text"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    defaultValue="Jesse"
+                    defaultValue="Tan"
                   />
                 </div>
               </div>
@@ -102,7 +181,7 @@ export default function CardSettings() {
                   <input
                     type="text"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    defaultValue="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09"
+                    defaultValue="2 College Ave West, Stephen Riady Centre"
                   />
                 </div>
               </div>
@@ -115,9 +194,9 @@ export default function CardSettings() {
                     City
                   </label>
                   <input
-                    type="email"
+                    type="text"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    defaultValue="New York"
+                    defaultValue="Singapore"
                   />
                 </div>
               </div>
@@ -132,7 +211,7 @@ export default function CardSettings() {
                   <input
                     type="text"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    defaultValue="United States"
+                    defaultValue="Singapore"
                   />
                 </div>
               </div>
@@ -147,7 +226,7 @@ export default function CardSettings() {
                   <input
                     type="text"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    defaultValue="Postal Code"
+                    defaultValue="138607"
                   />
                 </div>
               </div>
@@ -156,7 +235,7 @@ export default function CardSettings() {
             <hr className="mt-6 border-b-1 border-blueGray-300" />
 
             <h6 className="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
-              About Me
+              Preferences
             </h6>
             <div className="flex flex-wrap">
               <div className="w-full lg:w-12/12 px-4">
@@ -165,20 +244,152 @@ export default function CardSettings() {
                     className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                     htmlFor="grid-password"
                   >
-                    About me
+                    Skills
                   </label>
-                  <textarea
-                    type="text"
-                    className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    defaultValue="A beautiful UI Kit and Admin for React & Tailwind CSS. It is Free and Open Source."
-                    rows="4"
-                  ></textarea>
+                  
+                  <div
+                  className="block text-blueGray-600 text-xs font-bold mb-2"
+                    >
+                      {
+            skillsets.length === 0 ?(
+              <p className="font-light"> Add a Skill </p>
+            ):skillsets.map((skill1) => <div
+            ><span
+            className="text-lightBlue-600 bg-lightBlue-100 m-2 p-2 rounded-full text-center text-xs font-semibold"
+            > 
+            {skill1}
+            <button
+            className="text-lightBlue-600 bg-lightBlue-100 m-2 p-2 rounded-full text-center text-xs font-semibold"
+            onClick ={() => handleRemove(skill1)}
+            > X </button>
+                        </span>
+            </div>)/*
+            <span onClick={() =>
+                  handleFilterClick(filter)}
+                  className="text-lightBlue-600 bg-lightBlue-100 m-2 p-2 rounded-full text-center text-xs font-semibold"
+                  >
+                  {filter}
+                  <span className='text-lightBlue-600 -mr-4 font-semibold text-lg-special pl-2h pr-1'>x</span>
+                </span>)
+            */
+        }
+          
+                    </div>
+                  <input
+                      type="text"
+                      className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                      placeholder="Skill"
+                      name = "skillset"
+                      id="skillset"
+                      onChange={handleChange}
+                    />
+                    <button
+                      className="bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                      onClick={handleSubmit}
+                      id="skillBtn"
+                    >
+                      Add skill</button>
+                </div>
+                <br></br>
+              </div>
+            </div>
+            <div className="flex flex-wrap">
+              <div className="w-full lg:w-6/12 px-4">
+                <div className="relative w-full mb-3">
+                  <label
+                    className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                    htmlFor="grid-password"
+                  >
+                    Salary
+                  </label>
+                  <select id = "salary" value={currentSalary} defaultValue={currentSalary} onChange={handleSalary}
+                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+                      <option value="Choose Salary11"> Choose Salary</option>
+                      <option value="1"
+                      //onClick= {setCurrentSalary("1000-2000")}
+                      >{'<'}1000</option>
+                      <option value="2">1000-3000</option>
+                      <option value="3">3000-5000</option>
+                      <option value="4">{'>'}5000</option>
+                  </select>
+                </div>
+              </div>
+              <div className="w-full lg:w-6/12 px-4">
+                <div className="relative w-full mb-3">
+                  <label
+                    className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                    htmlFor="grid-password"
+                  >
+                    Distance
+                  </label>
+                  <select id = "distance" value={currentDistance} defaultValue={currentDistance}  onChange={handleDistance}
+                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+                      <option value="Choose Distance"> Choose Distance</option>
+                      <option value="1">{'<'}5km</option>
+                      <option value="2">5km-10km</option>
+                      <option value="3">10km-20km</option>
+                      <option value="4">{'>'}20km</option>
+                  </select>
+                  
+                </div>
+              </div>
+              <div className="w-full lg:w-6/12 px-4">
+                <div className="relative w-full mb-3">
+                  <label
+                    className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                    htmlFor="grid-password"
+                  >
+                    WFH Option
+                  </label>
+                  <select id = "3rdMetric" value={WFH} defaultValue={WFH}  onChange={handleWFH}
+                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+                      <option value="3rd Metric"> WFH   </option>
+                      <option value="1">Yes</option>
+                      <option value="2">No</option>
+                      <option value="3">No Preference</option>
+                      
+                  </select>
+                </div>
+              </div>
+              <div className="w-full lg:w-6/12 px-4">
+                <div className="relative w-full mb-3">
+                  <label
+                    className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                    htmlFor="grid-password"
+                  >
+                    Industry
+                  </label>
+                  <select id = "4thMetric" value={industry} defaultValue={industry}  onChange={handleIndustry}
+                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+                      <option value="Choose 4th Metric   "> Choose Industry</option>
+                      <option value="1">HealthCare</option>
+                      <option value="2">Media</option>
+                      <option value="3">Tech</option>
+                      <option value="4">Transportation</option>
+                      <option value="5">Marketing</option>
+                      <option value="6">Cyber Security</option>
+                  </select>
                 </div>
               </div>
             </div>
+
+            <hr className="mt-6 border-b-1 border-blueGray-300" />
+
+            <button
+                      className="bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                      onClick={handlePreferences}
+                      id="PrefBtn"
+                    >
+                      Apply Preferences</button>
           </form>
         </div>
+        
       </div>
+
+      
     </>
   );
-}
+
+  }
+
+  export default CardSettings
