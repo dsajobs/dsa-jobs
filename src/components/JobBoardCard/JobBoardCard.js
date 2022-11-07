@@ -97,14 +97,12 @@ const JobBoardCard = ({
                         </p>
                     </div>
                     <div className='ml-auto'>
-                        <Link to {'product-view'/${product.id}'>
                         <button className = 'bg-lightBlue-600 text-white m-9 p-2 rounded-t float-right font-semibold'>
                             See More
                         </button>
-                        <Link>
                     </div>
                     <div>
-                        <canvas id="myChart"></canvas>
+                        <canvas id="myChart" key ={id}></canvas>
                     </div>
 
                     
