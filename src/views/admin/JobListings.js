@@ -1,12 +1,7 @@
 import React, { useEffect, useState } from "react";
 import data from '../../data/jobsData.js'
 
-// components
-
-//import CardLineChart from "components/Cards/CardLineChart.js";
-//import CardBarChart from "components/Cards/CardBarChart.js";
-//import CardPageVisits from "components/Cards/CardPageVisits.js";
-//import CardSocialTraffic from "components/Cards/CardSocialTraffic.js";
+// component
 import JobBoardCard from "components/Cards/JobBoardCard/JobBoardCard";
 
 export default function JobListings() {

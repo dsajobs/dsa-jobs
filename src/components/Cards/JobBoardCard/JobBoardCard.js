@@ -107,8 +107,8 @@ const JobBoardCard = ({
                         </p>
                     </div>
                     <div className='ml-auto'>
-                        <Link>
-                        <button className = 'bg-lightBlue-600 text-white m-9 p-2 rounded-t float-right font-semibold'>
+                        <Link to ={`job-listing/${id}`}>
+                        <button className = 'click bg-lightBlue-600 text-white m-9 p-2 rounded-t float-right font-semibold'> 
                             See More
                         </button>
                         </Link>
