@@ -15,6 +15,7 @@ import JobListings from "views/admin/JobListings.js";
 import Maps from "views/admin/Maps.js";
 import Settings from "views/admin/Settings.js";
 import CalendarPage from "views/admin/CalendarPage.js";
+import Profile from "views/admin/Profile.js";
 
 export default function Admin() {
   return (
@@ -32,6 +33,7 @@ export default function Admin() {
             <Route path="/admin/maps" exact component={Maps} />
             <Route path="/admin/settings" exact component={Settings} />
             <Route path="/admin/calendar" exact component={CalendarPage} />
+            <Route path="/admin/profile" exact component={Profile} />
             <Redirect from="/admin" to="/admin/joblistings" />
           </Switch>
           <FooterAdmin />
