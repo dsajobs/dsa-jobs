@@ -181,7 +181,7 @@ const handleIndustry = (e) =>{
                   <input
                     type="text"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    defaultValue="2 College Ave West, Stephen Riady Centre"
+                    defaultValue="Local Pool Player"
                   />
                 </div>
               </div>
@@ -304,12 +304,12 @@ const handleIndustry = (e) =>{
                   <select id = "salary" value={currentSalary} defaultValue={currentSalary} onChange={handleSalary}
                   className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
                       <option value="Choose Salary11"> Choose Salary</option>
-                      <option value="1"
+                      <option value="<1000"
                       //onClick= {setCurrentSalary("1000-2000")}
                       >{'<'}1000</option>
-                      <option value="2">1000-3000</option>
-                      <option value="3">3000-5000</option>
-                      <option value="4">{'>'}5000</option>
+                      <option value="1000-3000">1000-3000</option>
+                      <option value="3000-5000">3000-5000</option>
+                      <option value=">5000">{'>'}5000</option>
                   </select>
                 </div>
               </div>
@@ -324,10 +324,10 @@ const handleIndustry = (e) =>{
                   <select id = "distance" value={currentDistance} defaultValue={currentDistance}  onChange={handleDistance}
                   className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
                       <option value="Choose Distance"> Choose Distance</option>
-                      <option value="1">{'<'}5km</option>
-                      <option value="2">5km-10km</option>
-                      <option value="3">10km-20km</option>
-                      <option value="4">{'>'}20km</option>
+                      <option value="5km">{'<'}5km</option>
+                      <option value="5km-10km">5km-10km</option>
+                      <option value="10km-20km">10km-20km</option>
+                      <option value=">20km">{'>'}20km</option>
                   </select>
                   
                 </div>
@@ -343,9 +343,9 @@ const handleIndustry = (e) =>{
                   <select id = "3rdMetric" value={WFH} defaultValue={WFH}  onChange={handleWFH}
                   className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
                       <option value="3rd Metric"> WFH   </option>
-                      <option value="1">Yes</option>
-                      <option value="2">No</option>
-                      <option value="3">No Preference</option>
+                      <option value="Yes">Yes</option>
+                      <option value="No">No</option>
+                      <option value="No Preference">No Preference</option>
                       
                   </select>
                 </div>
@@ -361,12 +361,12 @@ const handleIndustry = (e) =>{
                   <select id = "4thMetric" value={industry} defaultValue={industry}  onChange={handleIndustry}
                   className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
                       <option value="Choose 4th Metric   "> Choose Industry</option>
-                      <option value="1">HealthCare</option>
-                      <option value="2">Media</option>
-                      <option value="3">Tech</option>
-                      <option value="4">Transportation</option>
-                      <option value="5">Marketing</option>
-                      <option value="6">Cyber Security</option>
+                      <option value="HealthCare">HealthCare</option>
+                      <option value="Media">Media</option>
+                      <option value="Tech">Tech</option>
+                      <option value="Transportation">Transportation</option>
+                      <option value="Marketing">Marketing</option>
+                      <option value="Cyber Security">Cyber Security</option>
                   </select>
                 </div>
               </div>
