@@ -13,7 +13,10 @@ import Auth from "layouts/Auth.js";
 // views without layouts
 
 import Landing from "views/Landing.js";
-import Profile from "views/Profile.js";
+
+//import Profile from "views/Profile.js";  
+//*moved profile to be viewed under the same auth bar for consistency
+
 import Index from "views/Index.js";
 
 ReactDOM.render(
@@ -24,7 +27,7 @@ ReactDOM.render(
       <Route path="/auth" component={Auth} />
       {/* add routes without layouts */}
       <Route path="/landing" exact component={Landing} />
-      <Route path="/profile" exact component={Profile} />
+      
       <Route path="/" exact component={Landing} />
       {/* add redirect for first page */}
       <Redirect from="*" to="/" />

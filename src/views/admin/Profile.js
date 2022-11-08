@@ -3,7 +3,7 @@ import React, { useRef } from "react";
 import axios from 'axios';
 import useFileUpload from 'react-use-file-upload';
 
-import Navbar from "components/Navbars/AuthNavbar.js";
+import Navbar from "components/Navbars/Navbar.js";
 import Footer from "components/Footers/Footer.js";
 
 export default function Profile() {
@@ -40,7 +40,6 @@ export default function Profile() {
 
   return (
     <>
-      <Navbar transparent />
       <main className="profile-page">
         <section className="relative block h-500-px">
           <div
@@ -52,7 +51,7 @@ export default function Profile() {
           >
             <span
               id="blackOverlay"
-              className="w-full h-full absolute opacity-50 bg-white"
+              className="w-full h-full absolute opacity-50"
             ></span>
           </div>
           <div

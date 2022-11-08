@@ -5,7 +5,7 @@ import React from "react";
 import CardTable from "components/Cards/CardTable.js";
 import Calendar from "../../components/Calendar/Calendar";
 
-export default function Tables() {
+export default function CalendarPage() {
   return (
     <>
       <div className="flex flex-wrap mt-4">

@@ -90,12 +90,21 @@ export default function Navbar(props) {
 
 
               <Link
-                to="/admin/dashboard"
+                to="/admin/joblistings"
                 className={
                   "lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
                 }
               >
                 Job Listings
+              </Link>
+
+              <Link
+                to="/admin/calendar"
+                className={
+                  "lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                }
+              >
+                Calendar
               </Link>
 
               <Link
