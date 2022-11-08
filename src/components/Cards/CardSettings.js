@@ -25,6 +25,11 @@ const CardSettings = () => {
   const [currentDistance, setCurrentDistance] = useState(0);
   const [WFH, setWFH] = useState(0);
   const [industry, setIndustry] = useState(0);
+  const [intro,setIntro] = useState("");
+  const [city,setCity] = useState('');
+  const [country,setCountry] = useState('');
+  const [institute, setInstitute] = useState('');
+  const [details,setDetails] = useState('');
   const handleChange = (e) => {
     console.log(e.target.value);
     //const value = e.target.value;
@@ -81,6 +86,27 @@ const handleIndustry = (e) =>{
   setIndustry(e.value);
 }
 
+const handleContact = (e) => {
+  e.preventDefault();
+  const contactDetails = {introduction:intro,cit:city,count:country,insti:institute};
+  setDetails(contactDetails);
+}
+
+const changeIntro =(e) =>{
+  setIntro(e.target.value);
+}
+
+const changeCity =(e) =>{
+  setCity(e.target.value);
+}
+
+const changeCountry =(e) =>{
+  setCountry(e.target.value);
+}
+
+const changeInstitute =(e) =>{
+  setInstitute(e.target.value);
+}
 
   return (
     <>
@@ -175,6 +201,7 @@ const handleIndustry = (e) =>{
                   <label
                     className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                     htmlFor="grid-password"
+                    onChange={changeIntro}
                   >
                     Short Introduction
                   </label>
@@ -197,6 +224,7 @@ const handleIndustry = (e) =>{
                     type="text"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                     defaultValue="Singapore"
+                    onChange={changeCity}
                   />
                   <button
                       className="bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
@@ -211,6 +239,7 @@ const handleIndustry = (e) =>{
                   <label
                     className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                     htmlFor="grid-password"
+                    onChange={changeCountry}
                   >
                     Country
                   </label>
@@ -226,6 +255,7 @@ const handleIndustry = (e) =>{
                   <label
                     className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                     htmlFor="grid-password"
+                    onChange={changeInstitute}
                   >
                     Institution 
                   </label>
