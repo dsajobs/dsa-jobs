@@ -2,6 +2,8 @@ import React from 'react';
 import Chart from 'chart.js';
 
 
+import { Link } from 'react-router-dom';
+
 const JobBoardCard = ({
     job:{
         id,
@@ -12,6 +14,7 @@ const JobBoardCard = ({
         position,
         role,
         level,
+        description,
         estStart,
         estEnd,
         contract,
@@ -46,7 +49,7 @@ const JobBoardCard = ({
         const data = {
         labels: labels,
         datasets: [{
-            label: 'My First dataset',
+            label: '%Match',
             data: [distanceMatch,salaryMatch,toolsMatch,skillsetMatch],
             fill: true,
             backgroundColor: 'rgba(2, 132, 199, 0.2)',
@@ -66,13 +69,19 @@ const JobBoardCard = ({
             line: {
                 borderWidth: 3
             }
-            }
+            },
+            plugins: {
+                legend: {
+                    display: false
+                  },
+            },
         },
         };
         console.log(id);
         console.log(data);
-        var myChart = document.getElementById("myChart");
-        new Chart("myChart", config);
+        //var myChart = document.getElementById("myChart");
+        var myChart = id+"Chart";       
+        new Chart(myChart, config);
 
         
         
@@ -98,12 +107,14 @@ const JobBoardCard = ({
                         </p>
                     </div>
                     <div className='ml-auto'>
+                        <Link>
                         <button className = 'bg-lightBlue-600 text-white m-9 p-2 rounded-t float-right font-semibold'>
                             See More
                         </button>
+                        </Link>
                     </div>
                     <div>
-                        <canvas id="myChart" key ={id}></canvas>
+                        <canvas id = {myChart} key ={myChart}></canvas>
                     </div>
 
                     
