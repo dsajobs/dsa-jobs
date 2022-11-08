@@ -1,6 +1,9 @@
 FROM pytorch/pytorch
 
-COPY . . 
 WORKDIR /api
-RUN pip install requirements.txt
-RUN flask run
+COPY requirements.txt requirements.txt
+
+RUN pip install -r requirements.txt
+
+COPY . .
+CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
