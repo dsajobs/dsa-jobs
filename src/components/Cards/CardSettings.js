@@ -198,6 +198,12 @@ const handleIndustry = (e) =>{
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                     defaultValue="Singapore"
                   />
+                  <button
+                      className="bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                      onClick={handleSubmit}
+                      id="skillBtn"
+                    >
+                      Save Information</button>
                 </div>
               </div>
               <div className="w-full lg:w-4/12 px-4">
@@ -231,12 +237,7 @@ const handleIndustry = (e) =>{
                 </div>
                 
               </div>
-              <button
-                      className="bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-                      onClick={handleSubmit}
-                      id="skillBtn"
-                    >
-                      Save Information</button>
+              
             </div>
 
             <hr className="mt-6 border-b-1 border-blueGray-300" />
@@ -348,6 +349,12 @@ const handleIndustry = (e) =>{
                       <option value="No Preference">No Preference</option>
                       
                   </select>
+                  <button
+                      className="bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                      onClick={handlePreferences}
+                      id="PrefBtn"
+                    >
+                      Apply Preferences</button>
                 </div>
               </div>
               <div className="w-full lg:w-6/12 px-4">
@@ -374,12 +381,7 @@ const handleIndustry = (e) =>{
 
             <hr className="mt-6 border-b-1 border-blueGray-300" />
 
-            <button
-                      className="bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-                      onClick={handlePreferences}
-                      id="PrefBtn"
-                    >
-                      Apply Preferences</button>
+            
           </form>
         </div>
         
