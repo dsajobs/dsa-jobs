@@ -19,8 +19,7 @@ import Tables from "views/admin/Tables.js";
 export default function Admin() {
   return (
     <>
-      <Sidebar />
-      <div className="relative md:ml-64 bg-blueGray-100">
+      <div className="relative bg-blueGray-100">
         <Navbar/>
         {/* Header Ribbon <HeaderStats />*/}
 
