@@ -77,8 +77,8 @@ const JobBoardCard = ({
             },
         },
         };
-        console.log(id);
-        console.log(data);
+        //console.log(id);
+        //console.log(data);
         //var myChart = document.getElementById("myChart");
         var myChart = id+"Chart";       
         new Chart(myChart, config);

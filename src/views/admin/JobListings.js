@@ -7,7 +7,7 @@ import data from '../../data/jobsData.js'
 //import CardBarChart from "components/Cards/CardBarChart.js";
 //import CardPageVisits from "components/Cards/CardPageVisits.js";
 //import CardSocialTraffic from "components/Cards/CardSocialTraffic.js";
-import JobBoardCard from "components/JobBoardCard/JobBoardCard";
+import JobBoardCard from "components/Cards/JobBoardCard/JobBoardCard";
 
 export default function JobListings() {
   const [jobs,setJobs] = useState([]);
