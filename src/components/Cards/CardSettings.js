@@ -176,7 +176,7 @@ const handleIndustry = (e) =>{
                     className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                     htmlFor="grid-password"
                   >
-                    Address
+                    Short Introduction
                   </label>
                   <input
                     type="text"
@@ -221,15 +221,22 @@ const handleIndustry = (e) =>{
                     className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                     htmlFor="grid-password"
                   >
-                    Postal Code
+                    Institution 
                   </label>
                   <input
                     type="text"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    defaultValue="138607"
+                    defaultValue="National University of Singapore"
                   />
                 </div>
+                
               </div>
+              <button
+                      className="bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                      onClick={handleSubmit}
+                      id="skillBtn"
+                    >
+                      Save Information</button>
             </div>
 
             <hr className="mt-6 border-b-1 border-blueGray-300" />
@@ -263,15 +270,7 @@ const handleIndustry = (e) =>{
             onClick ={() => handleRemove(skill1)}
             > X </button>
                         </span>
-            </div>)/*
-            <span onClick={() =>
-                  handleFilterClick(filter)}
-                  className="text-lightBlue-600 bg-lightBlue-100 m-2 p-2 rounded-full text-center text-xs font-semibold"
-                  >
-                  {filter}
-                  <span className='text-lightBlue-600 -mr-4 font-semibold text-lg-special pl-2h pr-1'>x</span>
-                </span>)
-            */
+            </div>)
         }
           
                     </div>

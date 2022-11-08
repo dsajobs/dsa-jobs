@@ -175,6 +175,7 @@ export default function Landing(props) {
                             inputRef.current.value = null;
                           }}
                         />
+                        <div className="relative flex flex-col h-16 break-words bg-blueGray-50 w-full mt-2 mb-4 text-blueGray-500"> Drop File Here </div>
                       </div>
                     </div>
                     <div className="submit">
