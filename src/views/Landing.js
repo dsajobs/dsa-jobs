@@ -6,7 +6,7 @@ import useFileUpload from 'react-use-file-upload';
 // components
 
 import Navbar from "components/Navbars/AuthNavbarLogin.js";
-import Footer from "components/Footers/Footer.js";
+import Footer from "components/Footers/FooterAdmin.js";
 
 
 export default function Landing(props) {
