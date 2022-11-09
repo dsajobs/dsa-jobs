@@ -1,4 +1,4 @@
-import React, {useEffect, useState,useCallback,useMemo} from "react";
+import React, { useState,useCallback} from "react";
 
 import data from '../../../data/jobsData.js';
 
@@ -11,7 +11,6 @@ import parse from 'date-fns/parse';
 import startOfWeek from 'date-fns/startOfWeek';
 import getDay from 'date-fns/getDay';
 import enUS from 'date-fns/locale/en-US';
-import JobDescription from "components/JobDescription/JobDescription.js";
 
 const locales = {
   'en-US': enUS,

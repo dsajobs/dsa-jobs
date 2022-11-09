@@ -4,7 +4,7 @@ const addPreferences = (preference) =>{
         preferences = [[preference]];
     }
     else{
-        preferences = [... preference];
+        preferences = [...preference];
         localStorage.setItem('preferences',preferences);
     }
 

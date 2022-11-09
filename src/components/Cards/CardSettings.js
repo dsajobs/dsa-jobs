@@ -1,18 +1,13 @@
 
 import React from "react";
 import {useState} from "react";
-import SalaryDropDown from "components/Dropdowns/SalaryDropDown.js";
-import PagesDropdown from "components/Dropdowns/PagesDropdown.js";
 import addPreferences from "../../Functions/addPreferences";
-import { Link } from "react-router-dom";
 import { useRef } from 'react';
-import axios from 'axios';
 import useFileUpload from 'react-use-file-upload';
 
 const CardSettings = () => {
 
 
-  const btn = document.getElementById('skillBtn');
   /*btn.addEventListener('click', function handleClick(event) {
     event.preventDefault();
     document.getElementById('skillset').value = '';
@@ -20,8 +15,6 @@ const CardSettings = () => {
 
   const [skill,setSkill] = useState('');
   const [skillsets,setSkillSets] = useState([]);
-  const [remove,setRemove] = useState([]);
-  const [salaryBarOpen, setSalaryBarOpen] = React.useState(false);
   const [currentSalary, setCurrentSalary] = useState(0);
   
   const [currentDistance, setCurrentDistance] = useState(0);
@@ -44,7 +37,7 @@ const CardSettings = () => {
 
   const handleSubmit =(e) => {
     e.preventDefault();
-    setSkill( ... [skill]);
+    setSkill( ...[skill]);
     setSkillSets([].concat(skillsets,skill +" ") );
     const field = document.getElementById("skillset");
     field.value ='';
@@ -55,7 +48,7 @@ const handleRemove = (e) => {
   const toBeRemoved = e.target.value;
   const update =[];
   for (var i=0; i < skillsets.length; i++){
-    if (skillsets[i] != toBeRemoved){
+    if (skillsets[i] !== toBeRemoved){
       update.push(skillsets[i]);
     }
   }
@@ -253,7 +246,7 @@ const handleSend = async (e) => {
                   />
                   <button
                       className="bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-                      onClick={handleSubmit}
+                      onClick={handleContact}
                       id="skillBtn"
                     >
                       Save Information</button>

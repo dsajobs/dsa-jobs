@@ -17,7 +17,7 @@ import Landing from "views/Landing.js";
 //import Profile from "views/Profile.js";  
 //*moved profile to be viewed under the same auth bar for consistency
 
-import Index from "views/Index.js";
+
 
 ReactDOM.render(
   <BrowserRouter>

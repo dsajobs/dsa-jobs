@@ -1,7 +1,6 @@
 // import React from "react";
 import { Link } from "react-router-dom";
 import React, { useRef } from 'react';
-import axios from 'axios';
 import useFileUpload from 'react-use-file-upload';
 // components
 
