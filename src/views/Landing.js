@@ -215,7 +215,7 @@ export default function Landing(props) {
                   about your future job. We would find jobs that best suit you based on the information 
                   provided.
                 </p>
-                <Link to="/" className="font-bold text-blueGray-700 mt-8">
+                <Link to="/auth/login" className="font-bold text-blueGray-700 mt-8">
                   Start Your Job Search Now!
                 </Link>
               </div>
