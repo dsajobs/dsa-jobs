@@ -84,7 +84,8 @@ export default function JobListings() {
         </h2>
         <h1 className="h-20"> Edit this to make a padding. </h1>
 
-        <div className="flex flex-wrap m-4">
+        <div className="m-4">
+        <div className="flex flex-row m-4 w-/12">
 
           <div className="w-full lg:w-6/12 px-1">
                 <div className="relative w-full mb-3">
@@ -103,7 +104,7 @@ export default function JobListings() {
                 </div>
             </div>
 
-            <div className="ml-4">
+            <div className="ml-10">
                 <div className="relative w-full mb-3">
                   <label
                     className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
@@ -120,7 +121,7 @@ export default function JobListings() {
                 </div>
             </div>
 
-            
+            </div>
           </div>
         <div className ='flex bg-white shadow-md m-4 p-5 rounded align-middle'>
           {
