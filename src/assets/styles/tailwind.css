@@ -215,6 +215,18 @@ button,
 }
 
 
+.auth-click {
+
+}
+
+.auth-click:hover{
+  background-color: rgba(200, 200, 200, var(--tw-bg-opacity));
+}
+
+.sign-in-button:hover {
+  background-color: rgba(0,0,0, var(--tw-bg-opacity));
+}
+
 /**
 Remove the inner border and padding in Firefox.
 */
