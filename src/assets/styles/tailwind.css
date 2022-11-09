@@ -1480,6 +1480,11 @@ background-color: rgba(29, 78, 216, var(--tw-bg-opacity));
           align-content: center;
 }
 
+.content-left {
+  -webkit-align-content: left;
+          align-content: left;
+}
+
 .content-between{
 align-content: space-between;	
 }
@@ -1846,6 +1851,11 @@ margin: 2.25rem;
 .mt-10 {
   margin-top: 2.5rem;
 }
+
+.ml-10 {
+  margin-left: 2.5rem;
+}
+
 
 .mt-12 {
   margin-top: 3rem;
