@@ -1,9 +1,8 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useState,useCallback,useMemo} from "react";
 
 import data from '../../../data/jobsData.js';
 
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+
 
 import { Calendar, dateFnsLocalizer } from 'react-big-calendar';
 import "react-big-calendar/lib/css/react-big-calendar.css";
@@ -12,7 +11,7 @@ import parse from 'date-fns/parse';
 import startOfWeek from 'date-fns/startOfWeek';
 import getDay from 'date-fns/getDay';
 import enUS from 'date-fns/locale/en-US';
-
+import JobDescription from "components/JobDescription/JobDescription.js";
 
 const locales = {
   'en-US': enUS,
@@ -26,7 +25,6 @@ const localizer = dateFnsLocalizer({
   locales,
 })
 
-console.log(data);
 
 
 
@@ -50,15 +48,51 @@ const events = [
 ];
 
 const CalendarCard = () => {
+  const [myEvents, setEvents] = useState(events)
+
+
+
+
+  const handleSelectSlot =useCallback(
+    ({start,end}) => {
+      data.forEach(job=>console.log(job));
+      const title= window.prompt("new event")
+      if (title){
+        setEvents((prev)=>[...prev,{start,end,title}])
+      }
+    },
+    [setEvents]
+  )
+
+  const handleSelectEvent =useCallback(
+    (event) => window.alert(event.title),
+    []
+  ) 
+
+
+
   console.log('ji');
+  data.forEach(job => {
+    const end = job.estEnd.replaceAll('/', '-');
+    console.log(end);
+    const start = new Date(end);
+    console.log(start);
+    const position = job.company + "-" + job.position;
+    events.push({title:position,allDay:true,start:start,end:start});
+  })
+
+  console.log(events);
 
     return (
       <div className="text-blueGray-700">
         <Calendar
         localizer={localizer} 
-        events={events} 
+        events={myEvents} 
         startAccessor="start" 
         endAccessor="end" 
+        onSelectEvent ={handleSelectEvent}
+        onSelectSlot={handleSelectSlot}
+        selectable
         style={{ height: 500, margin: "50px" }} />
         
       </div>
