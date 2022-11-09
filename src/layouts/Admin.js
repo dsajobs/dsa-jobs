@@ -35,7 +35,7 @@ export default function Admin() {
             <Route path="/admin/settings" exact component={Settings} />
             <Route path="/admin/calendar" exact component={CalendarPage} />
             <Route path="/admin/profile" exact component={Profile} />
-            <Route path="/admin/job-listing/:id">
+            <Route path="/admin/joblistings/:id">
               <JobDescription/>
             </Route>
             <Redirect from="/admin" to="/admin/joblistings" />
