@@ -19,7 +19,9 @@ const jobsData = [
       distanceMatch: 50,
       salaryMatch: 80,
       toolsMatch: 90,
-      skillsetMatch: 70
+      skillsetMatch: 70,
+      companyLink: 'https://jobs.hp.com/why-work-at-hp/',
+      applyLink: 'https://jobs.hp.com/jobdetails/16885842/business-analyst-intern-boise-id/'
     },
     {
       id: 2,
@@ -41,7 +43,9 @@ const jobsData = [
       distanceMatch: 60,
       salaryMatch: 80,
       toolsMatch: 90,
-      skillsetMatch: 70
+      skillsetMatch: 70,
+      companyLink: 'https://jobs.hp.com/why-work-at-hp/',
+      applyLink: 'https://jobs.hp.com/jobdetails/16885842/business-analyst-intern-boise-id/'
     },
     {
     id: 3,
@@ -63,7 +67,9 @@ const jobsData = [
     distanceMatch: 33,
     salaryMatch: 80,
     toolsMatch: 90,
-    skillsetMatch: 70
+    skillsetMatch: 70,
+    companyLink: 'https://jobs.hp.com/why-work-at-hp/',
+    applyLink: 'https://jobs.hp.com/jobdetails/16885842/business-analyst-intern-boise-id/'
     },
     {
     id: 4,
@@ -85,7 +91,9 @@ const jobsData = [
     distanceMatch: 20,
     salaryMatch: 90,
     toolsMatch: 40,
-    skillsetMatch: 70
+    skillsetMatch: 70,
+    companyLink: 'https://jobs.hp.com/why-work-at-hp/',
+    applyLink: 'https://jobs.hp.com/jobdetails/16885842/business-analyst-intern-boise-id/'
     },
   ];
   export default jobsData;
