@@ -12,7 +12,7 @@ export default function CardProfile() {
               <div className="relative">
                 <img
                   alt="..."
-                  src={require("assets/img/Nicholas-dp.jpg").default}
+                  src={require("assets/img/Default-avatar.jpg").default}
                   className="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px"
                 />
               </div>

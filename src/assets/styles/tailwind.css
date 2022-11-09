@@ -1599,6 +1599,10 @@ float: right;
   height: 600px;
 }
 
+.h-700-px {
+  height:790px;
+}
+
 .text-55 {
   font-size: 55rem;
 }
