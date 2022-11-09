@@ -2,7 +2,6 @@ import React from "react";
 
 // components
 
-import CardTable from "components/Cards/CardTable.js";
 import CalendarCard from "components/Cards/Calendar/CalendarCard.js";
 
 export default function CalendarPage() {
