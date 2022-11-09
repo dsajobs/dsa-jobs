@@ -1,10 +1,6 @@
-import { Link } from "react-router-dom";
 import React, { useRef } from "react";
-import axios from 'axios';
 import useFileUpload from 'react-use-file-upload';
 
-import Navbar from "components/Navbars/Navbar.js";
-import Footer from "components/Footers/Footer.js";
 
 export default function Profile() {
   const {

@@ -1,10 +1,8 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 
-import { Link } from 'react-router-dom';
 import data from '../../data/jobsData.js';
 
-import { Chart } from 'chart.js';
 
 
 const JobDescription = () => {
