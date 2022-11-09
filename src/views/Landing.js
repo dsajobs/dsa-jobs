@@ -215,8 +215,10 @@ export default function Landing(props) {
                   about your future job. We would find jobs that best suit you based on the information 
                   provided.
                 </p>
-                <Link to="/" className="font-bold text-blueGray-700 mt-8">
+                <Link to="/auth/login">
+                  <button className = 'click bg-lightBlue-600 text-white mb-9 p-2 rounded-t font-semibold'>
                   Start Your Job Search Now!
+                  </button>
                 </Link>
               </div>
 
