@@ -7,30 +7,25 @@ import JobBoardCard from "components/Cards/JobBoardCard/JobBoardCard";
 export default function JobListings() {
   const [jobs,setJobs] = useState([]);
   const [filters, setFilters] = useState([]);
-  const [level, setLevel] = useState("");
-  const [contract, setContract] = useState("");
-
-  console.log("level: "+ level);
-  console.log("contract: "+ contract);
-
+  const [level, setLevel] = useState("null");
+  const [contract, setContract] = useState("null");
   /*Change to api call for the data*/
   useEffect(() => setJobs(data), []);
 
   const levelFilter = (currJob
     ) => {
-      if(currJob.level.value==="null") {
+      if(level==="null") {
         return true;
       }
-      console(currJob.level.value === level);
-      return currJob.level.value === level;
+      return currJob.level=== level;
     }
 
   const contractFilter = (currJob
       ) => {
-        if(currJob.contract.value === "null") {
+        if(contract === "null") {
           return true;
         }
-        return currJob.contract.value === contract;
+        return currJob.contract === contract;
       }
 
   const tagsFilter = ({role, level, tools, languages, skillset}
@@ -103,7 +98,7 @@ export default function JobListings() {
                   className="border-0 pr-12 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded-lg text-xs shadow focus:outline-none focus:ring w-auto ease-linear transition-all duration-150">
                       <option value="null"> </option>
                       <option value="Part Time">Part Time</option>
-                      <option value="Full Time">FullTime</option>
+                      <option value="Full Time">Full Time</option>
                   </select>
                 </div>
             </div>
