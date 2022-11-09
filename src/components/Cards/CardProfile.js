@@ -86,7 +86,7 @@ export default function CardProfile() {
               className="bg-blueGrey-600 text-black font-bold uppercase text-xs px-4 mt-5 py-2 rounded shadow mr-1"
             >
               <div className='inline-flex w-full justify-center'>
-              <div className="bg-red">
+              <div className="text-center">
               Upload Resume
               
               <div className="form-container justify-center pt-2">
@@ -143,7 +143,11 @@ export default function CardProfile() {
                             inputRef.current.value = null;
                           }}
                         />
-                        <div className="relative flex flex-col h-16 break-words bg-blueGray-50 w-full mt-2 mb-4 text-blueGray-500"> Drop File Here </div>
+                        <div className="relative flex flex-col h-16 break-words bg-blueGray-50 w-full mt-2 mb-4 text-blueGray-500"> 
+                        <div className="mt-5">
+                        Drop File Here 
+                          </div>
+                          </div>
                       </div>
                       </div>
                       </div>
