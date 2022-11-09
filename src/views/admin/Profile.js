@@ -158,7 +158,9 @@ export default function Profile() {
                             inputRef.current.value = null;
                           }}
                         />
-                         <div className="relative flex flex-col h-16 break-words bg-blueGray-50 w-full mt-2 mb-4 text-blueGray-500"> Drop File Here </div>
+                         <div className="relative flex flex-col min-w-0 break-words w-6\/12 mb-0 shadow-lg rounded bg-blueGray-200 border-0">
+                        <div className="relative flex flex-col h-8 break-words bg-blueGray-200 w-6\/12 mt-5 mb-4 text-blueGray-500"> Drop File Here </div>
+                        </div>
                       </div>
                     </div>
                     <div className="submit">
