@@ -20,6 +20,32 @@ Our portal is mainly catered to Data Science undergraduates who are actively see
 
 ### **Welcome to our One-Stop Data Science Job Portal!**
 
+
+<br>
+
+## Key Application Features
+
+On top of the usual filters of a job portal, we have additionally implemented 3 key features in our application that make us unique.
+
+### 1) Calendar View: 
+
+As different jobs have different job application deadlines, we have decided to create a calendar view for the end-user to view all the deadlines of the various job openings at a glance.
+
+
+### 2) Radar Graph: 
+
+The radar graph is a personalised spider-like chart which will match the similarity of the job description to your interests/skillsets based on your preferences and your resume. It will also indicate a percentage of how likely you will fit in the job. This will allow the end-user to hopefully make a better informed decision on which jobs to apply for based on their interests.
+
+
+### 3) Quick Links: 
+
+We have also decided to include relevant links that can be easily accessed from each job description. The end-user may have easy direct access to the company's webpage if they wish to find out more, and also quick link to directly apply for the job.
+
+
+<br>
+
+## Our job portal at a glance
+
 We have 4 main pages:
 1) Main Landing Page
 2) Login/Register Page
@@ -46,21 +72,8 @@ Here is where the end-user may sign in using their school account or Google acco
 
 This is where the end-user may view the various job postings from employers.
 
-We have implemented 3 distinct features for each job description:
+This is also where the key features of our app lies. 
 
-1) Calendar View: 
-
-    As different jobs have different job application deadlines, we have decided to create a calendar view for the end-user to view all the deadlines of the various job openings at a glance.
-
-
-2) Radar Graph: 
-
-    The radar graph is a personalised spider-like chart which will match the similarity of the job description to your interests/skillsets based on your preferences and your resume. It will also indicate a percentage of how likely you will fit in the job. This will allow the end-user to hopefully make a better informed decision on which jobs to apply for based on their interests.
-
-
-3) Quick Links: 
-
-    We have also decided to include links of the various employers in the job description so that end-users may find out more about the company by accessing their website easily.
 
 
 
