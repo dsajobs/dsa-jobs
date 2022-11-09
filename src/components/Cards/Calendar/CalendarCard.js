@@ -2,8 +2,6 @@ import React, {useEffect, useState} from "react";
 
 import data from '../../../data/jobsData.js';
 
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
 
 import { Calendar, dateFnsLocalizer } from 'react-big-calendar';
 import "react-big-calendar/lib/css/react-big-calendar.css";
