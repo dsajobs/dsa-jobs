@@ -25,7 +25,9 @@ const JobBoardCard = ({
         distanceMatch,
         salaryMatch,
         toolsMatch,
-        skillsetMatch
+        skillsetMatch,
+        companyLink,
+        applyLink
     },handleTagClick,
 }) => {
         const tags = [];

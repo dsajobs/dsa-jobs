@@ -1,10 +1,92 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
 
 import { Link } from 'react-router-dom';
+import data from '../../data/jobsData.js';
+
+import { Chart } from 'chart.js';
+
 
 const JobDescription = () => {
 
 console.log('hello');
+
+//const id = window.location.pathname.split("/");
+//console.log(id);
+
+const [job, setJob] = useState({});
+
+const fetchJob = async(id2) => {
+  const jobDesc = await data[id2-1];
+  //console.log(jobDesc);
+  const {id,
+    company,
+    logo,
+    isNew,
+    featured,
+    position,
+    role,
+    level,
+    description,
+    estStart,
+    estEnd,
+    contract,
+    location,
+    languages,
+    tools,
+    skillset,
+    distanceMatch,
+    salaryMatch,
+    toolsMatch,
+    skillsetMatch,
+    companyLink,
+    applyLink
+  } = jobDesc;
+    setJob({id,
+      company,
+      logo,
+      isNew,
+      featured,
+      position,
+      role,
+      level,
+      description,
+      estStart,
+      estEnd,
+      contract,
+      location,
+      languages,
+      tools,
+      skillset,
+      distanceMatch,
+      salaryMatch,
+      toolsMatch,
+      skillsetMatch,
+      companyLink,
+      applyLink});
+};
+
+useEffect(()=>{
+  const id = window.location.pathname.split("/");
+  fetchJob(id[3]);
+}, []);
+
+console.log('Job');
+console.log(job);
+
+const tags = [];
+        if (job.tools){
+            tags.push(...job.tools);
+        }
+
+        if (job.languages){
+            tags.push(...job.languages);
+        }
+
+        if (job.skillset){
+            tags.push(...job.skillset);
+        }
+
 
 return (<>
     <main className="profile-page">
@@ -50,7 +132,7 @@ return (<>
                   <div className="relative">
                     <img
                       alt="..."
-                      src={require("assets/img/vue.jpg").default}
+                      src={job.logo} 
                       className="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px"
                     />
                   </div>
@@ -66,30 +148,48 @@ return (<>
                 </div>
               </div>
               <div className="text-center mt-12">
-                <h3 className="text-4xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2">
-                  Job Title
+              <h3 className="text-xl font-semibold leading-normal text-blueGray-700">
+                  {job.company}
+                </h3>
+                <h3 className="text-4xl font-semibold leading-normal mb-2 text-blueGray-700">
+                  {job.position}
                 </h3>
                 <div className="text-sm leading-normal mt-0 mb-1 text-blueGray-400 font-bold uppercase">
-                  Location
+                  <i className="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>{" "}
+                  {job.location}
                 </div>
-                <div className="mb-2 text-blueGray-600 mt-10">
-                  Full Time | Intern
+                <div className="mb-2 text-blueGray-600 font-bold text-xl mt-10">
+                  {job.contract} | {job.level}
                 </div>
-                <div className="mb-2 text-blueGray-600">
-                  Tools and Skills
+                
+                <div className='flex items-center'>
+                  <div className='flex flex-wrap w-full justify-center'>
+                    {tags ? tags.map((tag)=> 
+                    <span className="text-lightBlue-600 bg-lightBlue-100 m-2 p-2 rounded-full text-center text-xs font-semibold">
+                        {tag}
+                    </span>): '' }
+                  </div>
                 </div>
+
               </div>
               
 
-              <div className='flex flex-row items-cente'>
+              <div className='flex flex-row items-center'>
                 <div className='flex flex-wrap w-full justify-center'>
 
                 <div className='items-center'>
-                            <Link>
+                          <a href={job.applyLink} rel="noreferrer"> 
+                            <button className = 'click bg-lightBlue-600 text-white m-9 p-2 rounded-t float-right font-semibold'> 
+                                Apply Now
+                            </button>
+                            </a>
+                            
+                            <a href={job.companyLink} rel="noreferrer"> 
                             <button className = 'click bg-lightBlue-600 text-white m-9 p-2 rounded-t float-right font-semibold'> 
                                 Company Homepage
                             </button>
-                            </Link>
+                            </a>
+                            
                     </div>
                 </div>
 
@@ -102,6 +202,8 @@ return (<>
                 </div>
                 <div>
                     <p className=''>
+                      {job.description}
+                      <br/>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lorem mauris, interdum vitae ex in, consequat efficitur justo. Donec sit amet gravida sem, sit amet tempor tortor. Donec sit amet facilisis mi, eu pulvinar velit. Quisque vel sem placerat, ullamcorper leo non, auctor purus. Nulla facilisi. Donec leo dui, molestie id ante tempor, consectetur blandit felis. In hac habitasse platea dictumst. Nulla ultricies, mauris tempor cursus laoreet, odio lacus porta elit, id varius dolor ante vel sem. Fusce at justo eget libero feugiat dapibus. Donec convallis non sapien sit amet elementum. Mauris nec nulla tortor. Duis porttitor lorem suscipit dapibus ullamcorper. Donec porttitor orci magna. Quisque iaculis sapien at augue sollicitudin ultricies. Proin euismod venenatis consequat. Maecenas vulputate lectus vitae vulputate sodales. In in condimentum quam. Nam a neque sit amet velit mattis tincidunt eget non ante. Ut at maximus nunc, et congue ex. Duis semper nulla id turpis varius, sit amet vestibulum mi imperdiet.
                     </p>
                     <br/>
