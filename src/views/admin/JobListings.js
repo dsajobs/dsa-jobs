@@ -9,8 +9,21 @@ export default function JobListings() {
   const [filters, setFilters] = useState([]);
   const [level, setLevel] = useState("null");
   const [contract, setContract] = useState("null");
+  const [page, setPage] = useState(1);  
   /*Change to api call for the data*/
   useEffect(() => setJobs(data), []);
+
+  console.log(page);
+
+  const maxPerPage = 2;
+
+  const pageFilter = (currJob
+    ) => {
+      if(currJob.id> maxPerPage*(page-1) & currJob.id<=maxPerPage*(page)) {
+        return true;
+      }
+      return false;
+    }
 
   const levelFilter = (currJob
     ) => {
@@ -70,11 +83,15 @@ export default function JobListings() {
   }
 
   const filteredJobs1 = jobs.filter(tagsFilter);
-  console.log(filteredJobs1);
-  const filteredJobs2 = jobs.filter(contractFilter);
-  console.log(filteredJobs2);
-  const filteredJobs = filteredJobs2.filter(levelFilter);
+  const filteredJobs2 = filteredJobs1.filter(contractFilter);
+  const filteredJobs3 = filteredJobs2.filter(levelFilter);
+  const filteredJobs = filteredJobs3.filter(pageFilter);
   console.log(filteredJobs);
+
+  const handlePage = (e) =>{
+    e.preventDefault();
+    setPage(parseInt(e.target.value));
+  }
 
   return (
     <>
@@ -84,10 +101,10 @@ export default function JobListings() {
         </h2>
         <h1 className="h-20"> Edit this to make a padding. </h1>
 
-        <div className="m-4">
-        <div className="flex flex-row m-4 w-/12">
+        <div className="m-4 ">
+        <div className="flex flex-row wrap">
 
-          <div className="w-full lg:w-6/12 px-1">
+          <div className="w-full px-1">
                 <div className="relative w-full mb-3">
                   <label
                     className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
@@ -104,7 +121,7 @@ export default function JobListings() {
                 </div>
             </div>
 
-            <div className="ml-10">
+            <div className="w-full px-1">
                 <div className="relative w-full mb-3">
                   <label
                     className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
@@ -120,6 +137,25 @@ export default function JobListings() {
                   </select>
                 </div>
             </div>
+
+            <div className="w-full px-1">
+                <div className="relative w-full mb-3">
+                  <label
+                    className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                    htmlFor="grid-password"
+                  >
+                    Page
+                  </label>
+                  <select id = "page" value={page} defaultValue={page} onChange={handlePage}
+                  className="border-0 pr-12 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded-lg text-xs shadow focus:outline-none focus:ring w-auto ease-linear transition-all duration-150">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                  </select>
+                </div>
+            </div>
+            
+
 
             </div>
           </div>
