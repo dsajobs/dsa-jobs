@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import checkProfile from "../../checkProfile"
+import checkProfile from "../../Functions/checkProfile"
 import {useState} from "react";
 
 const Login = () => {

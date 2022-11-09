@@ -1,11 +1,10 @@
 
 import React from "react";
 import {useState} from "react";
-import ShowSkills from "ShowSkills";
 import SalaryDropDown from "components/Dropdowns/SalaryDropDown.js";
 import { Link } from "react-router-dom";
 import PagesDropdown from "components/Dropdowns/PagesDropdown.js";
-import addPreferences from "addPreferences";
+import addPreferences from "../../Functions/addPreferences";
 
 const CardSettings = () => {
 
