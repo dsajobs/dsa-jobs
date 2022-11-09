@@ -6,7 +6,7 @@ import useFileUpload from 'react-use-file-upload';
 // components
 
 import Navbar from "components/Navbars/AuthNavbarLogin.js";
-import Footer from "components/Footers/Footer.js";
+import Footer from "components/Footers/FooterAdmin.js";
 
 
 export default function Landing(props) {
@@ -175,7 +175,9 @@ export default function Landing(props) {
                             inputRef.current.value = null;
                           }}
                         />
-                        <div className="relative flex flex-col h-16 break-words bg-blueGray-50 w-full mt-2 mb-4 text-blueGray-500"> Drop File Here </div>
+                        <div className="relative flex flex-col min-w-0 break-words w-1\/12 mb-6 shadow-lg rounded-lg bg-blueGray-200 border-0">
+                        <div className="relative flex flex-col h-8 break-words bg-blueGray-200 w-full mt-5 mb-4 text-blueGray-500"> Drop File Here </div>
+                        </div>
                       </div>
                     </div>
                     <div className="submit">
@@ -215,6 +217,7 @@ export default function Landing(props) {
                   about your future job. We would find jobs that best suit you based on the information 
                   provided.
                 </p>
+
                 <Link to="/auth/login">
                   <button className = 'click bg-lightBlue-600 text-white mb-9 p-2 rounded-t font-semibold'>
                   Start Your Job Search Now!

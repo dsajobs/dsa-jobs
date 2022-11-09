@@ -43,6 +43,12 @@ export default function JobListings() {
   }
 
   const filteredJobs = jobs.filter(filterFunc);
+  const [type,setType] = useState('');
+
+  const handleType = (e) =>{
+    e.preventDefault();
+    setType(e.value);
+  }
 
   console.log(jobs);
 
@@ -53,7 +59,47 @@ export default function JobListings() {
           Job Listings 
         </h2>
         <h1 className="h-20"> Edit this to make a padding. </h1>
+        <div className="flex flex-wrap">
+          <div className="w-full lg:w-6/12 px-1">
+                <div className="relative w-full mb-3">
+                  <label
+                    className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                    htmlFor="grid-password"
+                  >
+                    Job Type
+                  </label>
+                  <select id = "type" value={type} defaultValue={type} onChange={handleType}
+                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded-lg text-xs shadow focus:outline-none focus:ring w-auto ease-linear transition-all duration-150">
+                      <option value="Choose Salary11"> Choose Type of Employment</option>
+                      <option value="<Intern"
+                      //onClick= {setCurrentSalary("1000-2000")}
+                      >Intern</option>
+                      <option value="Part-Time">Part-Time</option>
+                      <option value="Full-Time">Full-Time</option>
+                  </select>
+                </div>
+            </div>
 
+            <div className="ml-auto">
+                <div className="relative w-full mb-3">
+                  <label
+                    className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                    htmlFor="grid-password"
+                  >
+                    Job Type
+                  </label>
+                  <select id = "type" value={type} defaultValue={type} onChange={handleType}
+                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded-lg text-xs shadow focus:outline-none focus:ring w-auto ease-linear transition-all duration-150">
+                      <option value="Choose Salary11"> Choose Type of Employment</option>
+                      <option value="<Intern"
+                      //onClick= {setCurrentSalary("1000-2000")}
+                      >Intern</option>
+                      <option value="Part-Time">Part-Time</option>
+                      <option value="Full-Time">Full-Time</option>
+                  </select>
+                </div>
+            </div>
+          </div>
         <div className ='flex bg-white shadow-md m-4 p-5 rounded align-middle'>
           {
             filters.length === 0 ?(

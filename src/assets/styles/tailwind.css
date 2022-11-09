@@ -1599,6 +1599,10 @@ float: right;
   height: 600px;
 }
 
+.h-790-px {
+  height:790px;
+}
+
 .text-55 {
   font-size: 55rem;
 }
@@ -2598,6 +2602,10 @@ margin: 2.25rem;
 
 .w-auto {
   width: auto;
+}
+
+.w-3\/12{
+  width:25%;
 }
 
 .w-1\/2 {
