@@ -85,7 +85,7 @@ export default function JobListings() {
         <h1 className="h-20"> Edit this to make a padding. </h1>
 
         <div className="m-4">
-        <div className="flex flex-row m-4 w-/12">
+        <div className="flex flex-row w-/12">
 
           <div className="w-full lg:w-6/12 px-1">
                 <div className="relative w-full mb-3">
