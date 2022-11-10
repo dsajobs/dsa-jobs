@@ -5,7 +5,7 @@ import numpy as np
 from tqdm import tqdm
 import torch
 from torch.optim import Adam
-from torch.nn import LazyLinear, Softmax, Sequential, Module, CrossEntropyLoss
+from torch.nn import LazyLinear, Softmax, Sequential, Module, CrossEntropyLoss, GELU
 from torch.utils.data import Dataset, DataLoader
 
 resume_data = pd.read_csv("Clustering-People/data/UpdatedResumeDataSet.csv")
@@ -17,7 +17,11 @@ class Model(Module):
     def __init__(self):
         super().__init__()
         self.bert = AutoModel.from_pretrained("bert-base-cased")
-        self.lin = LazyLinear(resume_data.Category.nunique())
+        self.lin = Sequential(
+            LazyLinear(resume_data.Category.nunique() * 10),
+            GELU(),
+            LazyLinear(resume_data.Category.nunique()),
+            )
         self.sMax = Softmax()
         self.lossFxn = CrossEntropyLoss()
 
@@ -71,21 +75,32 @@ train_dataset = ResumeDataset(
 
 model = Model()
 
-opt = Adam(model.parameters(), lr = 1e-6)
+for param in model.bert.parameters():
+    param.requires_grad = False
+
+opt = Adam(model.parameters(), lr = 1e-5)
 
 res_loader = DataLoader(
     dataset = train_dataset,
-    batch_size = 16,
+    batch_size = 32,
     shuffle = True
 )
 
-for epoch in range(10):
+for epoch in range(100):
+    loss_total = 0
     for data in tqdm(res_loader):
     
         opt.zero_grad()
         loss, output = model(data)
         loss.backward()
+        loss_total += loss.detach()
         opt.step()
-    print(loss.detach())
+    
+    if epoch == 70:
+        for param in model.bert.parameters():
+            param.requires_grad = True
+        opt = Adam(model.parameters(), lr = 1e-6)
 
-model.save_pretrained(f"./DL-Models/res_classifier")
+    print(loss_total)
+
+torch.save(model.state_dict(), f"Clustering-People/DL-Models/res_classifier")
