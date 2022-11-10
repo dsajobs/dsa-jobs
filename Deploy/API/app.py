@@ -3,6 +3,14 @@ import json
 from flask import Flask, flash, request, redirect, url_for, jsonify
 from werkzeug.utils import secure_filename
 import pandas as pd
+import redis
+
+r = redis.Redis(
+    host = '0.0.0.0',
+    port = 6379
+)
+
+
 
 UPLOAD_FOLDER = 'data/resumes'
 ALLOWED_EXTENSIONS = {'pdf'}
