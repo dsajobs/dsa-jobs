@@ -44,7 +44,7 @@ const PagesDropdown = () => {
           Admin Layout
         </span>
         <Link
-          to="/admin/joblistings"
+          to="/user/joblistings"
           className={
             "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
           }
@@ -52,7 +52,7 @@ const PagesDropdown = () => {
           Job Listings
         </Link>
         <Link
-          to="/admin/settings"
+          to="/user/settings"
           className={
             "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
           }
@@ -60,7 +60,7 @@ const PagesDropdown = () => {
           Settings
         </Link>
         <Link
-          to="/admin/calendar"
+          to="/user/calendar"
           className={
             "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
           }
@@ -68,7 +68,7 @@ const PagesDropdown = () => {
           Calendar
         </Link>
         <Link
-          to="/admin/maps"
+          to="/user/maps"
           className={
             "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
           }

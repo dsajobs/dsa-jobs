@@ -94,7 +94,7 @@ const handleSubmit = () => {
                   </div>
 
                   <div className="text-center mt-6">
-                    <Link to="../admin/JobListings.js"
+                    <Link to="../user/joblistings"
                       className=" sign-in-button bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded"
                       type="submit"
                       onSubmit={checkProfile}
