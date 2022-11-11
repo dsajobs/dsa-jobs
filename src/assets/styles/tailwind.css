@@ -1181,6 +1181,10 @@ select {
   background-color: rgba(20, 184, 166, var(--tw-bg-opacity));
 }
 
+.bg-teal-600 {
+  background-color: rgb(13 148 136);
+}
+
 .bg-emerald-200 {
   --tw-bg-opacity: 1;
   background-color: rgba(167, 243, 208, var(--tw-bg-opacity));
@@ -1601,6 +1605,10 @@ float: right;
 
 .h-350-px {
   height: 350px;
+}
+
+.h-450-px {
+  height: 450px;
 }
 
 .h-500-px {
