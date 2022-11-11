@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import data from '../../data/jobsData.js'
+import AddJobDropDown from '../../components/Dropdowns/AddJobDropDown'
 
 // component
 import JobBoardCard from "components/Cards/JobBoardCard/JobBoardCard";
@@ -82,6 +83,8 @@ export default function JobListings() {
     setContract(e.target.value);
   }
 
+
+
   const filteredJobs1 = jobs.filter(tagsFilter);
   const filteredJobs2 = filteredJobs1.filter(contractFilter);
   const filteredJobs3 = filteredJobs2.filter(levelFilter);
@@ -153,6 +156,11 @@ export default function JobListings() {
                       <option value="3">3</option>
                   </select>
                 </div>
+            </div>
+
+            <div
+            className="click bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150">
+              <AddJobDropDown/>
             </div>
             
 
