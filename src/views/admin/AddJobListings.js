@@ -15,7 +15,15 @@ export default function AddJobListings() {
   const [address,setAddress] = useState('');
   const [industry,setIndustry] = useState('');
   const [JD,setJD] = useState('');
+  const [skills,setSkills] = useState('');
+  const [end,setEnd] = useState('');
+  const [contract,setContract] =useState('');
+  const [level,setLevel] = useState('');
+  const[language,setLanguage]= useState('');
+  const [tools,setTools]= useState('');
+  const [website,setWebsite]= useState('');
   const [listing,setListing] = useState('');
+
 
   //const btnDropdownRef = React.createRef();
   //const popoverDropdownRef = React.createRef();
@@ -42,6 +50,31 @@ export default function AddJobListings() {
 
   const handleJD = (e) =>{
     setJD(e.target.value);
+  }
+
+  const handleSkill = (e) =>{
+    setSkills(e.target.value)
+  }
+
+  const handleEnd = (e) =>{
+    setEnd(e.target.value)
+  }
+  
+  const handleContract = (e) =>{
+    setContract(e.target.value)
+  }
+
+  const handleLevel = (e) =>{
+    setLevel(e.target.value)
+  }
+  const handleLanguage = (e) =>{
+    setLanguage(e.target.value)
+  }
+  const handleTools = (e) =>{
+    setTools(e.target.value)
+  }
+  const handleWebsite = (e) =>{
+    setWebsite(e.target.value)
   }
 
   const submitListing = (e) => {
@@ -182,6 +215,133 @@ export default function AddJobListings() {
         </form>
 
 
+        <form className="flex flex-col wrap">
+            <span
+            className={
+                "text-sm pt-2 pb-0 font-bold block whitespace-nowrap bg-transparent text-blueGray-400"
+              }>
+                End Date:
+                </span>
+                <input
+                    type="text"
+                    className="border-0 px-3 py-3 mt-1 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                    defaultValue="Set End Date of Job"
+                    name ="end"
+                    id ="end"
+                    onChange={handleEnd}
+                  />
+            
+        </form>
+
+        <form className="flex flex-col wrap">
+            <span
+            className={
+                "text-sm pt-2 pb-0 font-bold block whitespace-nowrap bg-transparent text-blueGray-400"
+              }>
+                Contract Type:
+                </span>
+                <input
+                    type="text"
+                    className="border-0 px-3 py-3 mt-1 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                    defaultValue="Full Time"
+                    name ="contract"
+                    id ="contract"
+                    onChange={handleContract}
+                  />
+            
+        </form>
+
+        <form className="flex flex-col wrap">
+            <span
+            className={
+                "text-sm pt-2 pb-0 font-bold block whitespace-nowrap bg-transparent text-blueGray-400"
+              }>
+                Set Level:
+                </span>
+                <input
+                    type="text"
+                    className="border-0 px-3 py-3 mt-1 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                    defaultValue="Intern"
+                    name ="level"
+                    id ="level"
+                    onChange={handleLevel}
+                  />
+            
+        </form>
+
+        <form className="flex flex-col wrap">
+            <span
+            className={
+                "text-sm pt-2 pb-0 font-bold block whitespace-nowrap bg-transparent text-blueGray-400"
+              }>
+                Programming Languages:
+                </span>
+                <input
+                    type="text"
+                    className="border-0 px-3 py-3 mt-1 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                    defaultValue="[Python,Java]"
+                    name ="language"
+                    id ="language"
+                    onChange={handleLanguage}
+                  />
+            
+        </form>
+
+        <form className="flex flex-col wrap">
+            <span
+            className={
+                "text-sm pt-2 pb-0 font-bold block whitespace-nowrap bg-transparent text-blueGray-400"
+              }>
+                Programming Tools:
+                </span>
+                <input
+                    type="text"
+                    className="border-0 px-3 py-3 mt-1 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                    defaultValue="[SQL,Excel]"
+                    name ="tools"
+                    id ="tools"
+                    onChange={handleTools}
+                  />
+            
+        </form>
+
+        <form className="flex flex-col wrap">
+            <span
+            className={
+                "text-sm pt-2 pb-0 font-bold block whitespace-nowrap bg-transparent text-blueGray-400"
+              }>
+                Array of Skills:
+                </span>
+                <input
+                    type="text"
+                    className="border-0 px-3 py-3 mt-1 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                    defaultValue="[Data Cleaning,Data Visualisation]"
+                    name ="skills"
+                    id ="skills"
+                    onChange={handleSkill}
+                  />
+            
+        </form>
+
+        <form className="flex flex-col wrap">
+            <span
+            className={
+                "text-sm pt-2 pb-0 font-bold block whitespace-nowrap bg-transparent text-blueGray-400"
+              }>
+                Company Website:
+                </span>
+                <input
+                    type="text"
+                    className="border-0 px-3 py-3 mt-1 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                    defaultValue="Company Website"
+                    name ="website"
+                    id ="website"
+                    onChange={handleWebsite}
+                  />
+            
+        </form>
+
+
 
         <button 
         className="click w-full mt-5
@@ -191,6 +351,8 @@ export default function AddJobListings() {
         Submit Listing 
         </button>
         <div className="h-10">
+
+          
 
         </div>
       </div>
