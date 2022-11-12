@@ -10,8 +10,6 @@ r = redis.Redis(
     port = 6379
 )
 
-
-
 UPLOAD_FOLDER = 'data/resumes'
 ALLOWED_EXTENSIONS = {'pdf'}
 

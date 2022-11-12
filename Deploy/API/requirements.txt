@@ -1,3 +1,5 @@
 flask
 pandas
 redis
+PyPDF2
+nltk
