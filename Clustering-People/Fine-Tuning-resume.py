@@ -5,32 +5,13 @@ import numpy as np
 from tqdm import tqdm
 import torch
 from torch.optim import Adam
-from torch.nn import LazyLinear, Softmax, Sequential, Module, CrossEntropyLoss, GELU
+from Models import Model
 from torch.utils.data import Dataset, DataLoader
 
 resume_data = pd.read_csv("Clustering-People/data/UpdatedResumeDataSet.csv")
 resume_data_proc = pd.get_dummies(data = resume_data, columns=["Category"])
 
 tokenizer = AutoTokenizer.from_pretrained("bert-base-cased")
-
-class Model(Module):
-    def __init__(self):
-        super().__init__()
-        self.bert = AutoModel.from_pretrained("bert-base-cased")
-        self.lin = Sequential(
-            LazyLinear(resume_data.Category.nunique() * 10),
-            GELU(),
-            LazyLinear(resume_data.Category.nunique()),
-            )
-        self.sMax = Softmax()
-        self.lossFxn = CrossEntropyLoss()
-
-    def forward(self, data_dict):
-        output = self.bert(data_dict["input_ids"], attention_mask=data_dict["attention_mask"])
-        output = self.lin(output.pooler_output)
-        output = self.sMax(output)
-        loss = self.lossFxn(output, data_dict["labels"])
-        return loss, output
 
 class ResumeDataset(Dataset):
 
