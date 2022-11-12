@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 
 // components
-export default function Navbar(props) {
+export default function AdminNavbar(props) {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
   return (
     <>
@@ -33,36 +33,26 @@ export default function Navbar(props) {
             id="example-navbar-warning"
           >
             <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
-              <Link
+            <Link
                 to="/user/joblistings"
                 className={
                   "lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
                 }
               >
-                Job Listings
+                User
               </Link>
 
-              <Link
-                to="/user/calendar"
+            <Link
+                to="/admin/add"
                 className={
                   "lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
                 }
               >
-                Calendar
-              </Link>
-
-
-              <Link
-                to="/user/settings"
-                className={
-                  "lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-                }
-              >
-                Settings
+                Add New Job
               </Link>
 
               <Link
-                to="/user/profile"
+                to="/admin/profile"
                 className={
                   "lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
                 }
