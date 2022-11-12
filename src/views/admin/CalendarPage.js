@@ -2,15 +2,17 @@ import React from "react";
 
 // components
 
-import CardTable from "components/Cards/CardTable.js";
-import Calendar from "../../components/Calendar/Calendar";
+import CalendarCard from "components/Cards/Calendar/CalendarCard.js";
 
 export default function CalendarPage() {
   return (
     <>
-      <div className="flex flex-wrap mt-4">
-          <img src = {require("assets/img/Calendar2.png").default} style = {{width:900,height:900}} />
+    <div className="container self-center">
+      <div className="flex flex-wrap mt-4 pt-8 w-full">
+          <CalendarCard/>
       </div>
+    </div>
+      
     </>
   );
 }

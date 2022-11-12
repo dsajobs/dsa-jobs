@@ -1,10 +1,6 @@
-import { Link } from "react-router-dom";
 import React, { useRef } from "react";
-import axios from 'axios';
 import useFileUpload from 'react-use-file-upload';
 
-import Navbar from "components/Navbars/Navbar.js";
-import Footer from "components/Footers/Footer.js";
 
 export default function Profile() {
   const {
@@ -99,9 +95,9 @@ export default function Profile() {
                     <i className="fas fa-university mr-2 text-lg text-blueGray-400"></i>
                     National University of Singapore
                   </div>
-                  <button
-                        className="bg-blueGrey-500 active:bg-blueGrey-600 uppercase text-black font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
-                        type="button"
+
+                  <div
+                        className="bg-blueGrey-100 mt-10 uppercase text-black font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
                       >
                         Upload Resume
                         <div className="form-container">
@@ -167,7 +163,7 @@ export default function Profile() {
                       <button class="bg-lightBlue-500 active:bg-lightBlue 600 uppercase text-white font-bold hover:shadow-md shadow tet-xs px-3 py-1
                       rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150" onClick={handleSubmit}>Submit</button>
                     </div>
-                      </button>
+                      </div>
                 </div>
                 <div className="mt-10 py-10 border-t border-blueGray-200 text-center">
                   <div className="flex flex-wrap justify-center">

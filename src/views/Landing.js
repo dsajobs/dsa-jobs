@@ -65,8 +65,10 @@ export default function Landing(props) {
                     Welcome!
                   </h1>
                   <p className="mt-4 text-lg text-blueGray-200">
-                    To get started, head over to the Job Listings page to check out the jobs available. 
-                    To get a more cutomised listing, please upload your resume below or head to the profile page to update your profile.
+                    To get started, sign in and head over to the Job Listings page to check out the jobs available.
+                    <br></br>
+                    <br></br>
+                    To get a more cutomised listing, please upload your resume below or head to the settings page to update your preferences and skills.
                   </p>
                 </div>
               </div>
@@ -105,6 +107,10 @@ export default function Landing(props) {
                     <h6 className="text-xl font-semibold">Job Listing Page</h6>
                     <p className="mt-2 mb-4 text-blueGray-500">
                       From the skills and preferences you have indicated, we have created a personalised job listing page that displays the jobs best suited for you!
+<<<<<<< HEAD
+=======
+                      We also have a filter function for you to search for the type of job that suits you the best.
+>>>>>>> 935b4363ed7e4afba500d4a6f8e41f176f669b13
                     </p>
                   </div>
                 </div>
@@ -197,7 +203,11 @@ export default function Landing(props) {
                     </div>
                     <h6 className="text-xl font-semibold">Settings Page</h6>
                     <p className="mt-2 mb-4 text-blueGray-500">
+<<<<<<< HEAD
                       Head to the settings page to update your job preferences so that we are able to create a more personalised job listing page for you!
+=======
+                      Head to the settings page to update your job preferences so that we are able to create a more personalised job listing page for you! You will also be able to add on to the skill list available.
+>>>>>>> 935b4363ed7e4afba500d4a6f8e41f176f669b13
                     </p>
                   </div>
                 </div>

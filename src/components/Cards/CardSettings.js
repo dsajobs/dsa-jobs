@@ -1,18 +1,13 @@
 
 import React from "react";
 import {useState} from "react";
-import SalaryDropDown from "components/Dropdowns/SalaryDropDown.js";
-import PagesDropdown from "components/Dropdowns/PagesDropdown.js";
 import addPreferences from "../../Functions/addPreferences";
-import { Link } from "react-router-dom";
 import { useRef } from 'react';
-import axios from 'axios';
 import useFileUpload from 'react-use-file-upload';
 
 const CardSettings = () => {
 
 
-  const btn = document.getElementById('skillBtn');
   /*btn.addEventListener('click', function handleClick(event) {
     event.preventDefault();
     document.getElementById('skillset').value = '';
@@ -20,8 +15,6 @@ const CardSettings = () => {
 
   const [skill,setSkill] = useState('');
   const [skillsets,setSkillSets] = useState([]);
-  const [remove,setRemove] = useState([]);
-  const [salaryBarOpen, setSalaryBarOpen] = React.useState(false);
   const [currentSalary, setCurrentSalary] = useState(0);
   
   const [currentDistance, setCurrentDistance] = useState(0);
@@ -44,7 +37,7 @@ const CardSettings = () => {
 
   const handleSubmit =(e) => {
     e.preventDefault();
-    setSkill( ... [skill]);
+    setSkill( ...[skill]);
     setSkillSets([].concat(skillsets,skill +" ") );
     const field = document.getElementById("skillset");
     field.value ='';
@@ -55,7 +48,7 @@ const handleRemove = (e) => {
   const toBeRemoved = e.target.value;
   const update =[];
   for (var i=0; i < skillsets.length; i++){
-    if (skillsets[i] != toBeRemoved){
+    if (skillsets[i] !== toBeRemoved){
       update.push(skillsets[i]);
     }
   }
@@ -145,73 +138,6 @@ const handleSend = async (e) => {
         <div className="rounded-t bg-white mb-0 px-6 py-6">
           <div className="text-center flex justify-between">
             <h6 className="text-blueGray-700 text-xl font-bold">My account</h6>
-            <button
-              className="bg-blueGrey-500 text-black active:bg-blueGrey-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-              type="button"
-            >
-              Upload Resume
-              <div className="form-container">
-                      {/* Display the files to be uploaded */}
-                      <div>
-                        <ul>
-                          {fileNames.map((name) => (
-                            <li key={name}>
-                              <span>{name}</span>
-
-                              <span onClick={() => removeFile(name)}>
-                                <i className="fa fa-times" />
-                              </span>
-                            </li>
-                          ))}
-                        </ul>
-
-                        {files.length > 0 && (
-                          <ul>
-                            <li>File types found: {fileTypes.join(', ')}</li>
-                            <li>Total Size: {totalSize}</li>
-                            <li>Total Bytes: {totalSizeInBytes}</li>
-
-                            <li className="clear-all">
-                              <button onClick={() => clearAllFiles()}>Clear All</button>
-                            </li>
-                          </ul>
-                        )}
-                      </div>
-
-                      {/* Provide a drop zone and an alternative button inside it to upload files. */}
-                      <div
-                        // css={Dropzone}
-                        onDragEnter={handleDragDropEvent}
-                        onDragOver={handleDragDropEvent}
-                        onDrop={(e) => {
-                          handleDragDropEvent(e);
-                          setFiles(e, 'a');
-                        }}
-                      >
-                        {/* <p>Drag and drop files here</p> */}
-
-                        <button class="bg-lightBlue-500 active:bg-lightBlue 600 text-white hover:shadow-md shadow tet-xs px-2 py-1 rounded outline-none 
-                        focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150" onClick={() => inputRef.current.click()}>Select files to upload</button>
-
-                        {/* Hide the crappy looking default HTML input */}
-                        <input
-                          ref={inputRef}
-                          type="file"
-                          multiple
-                          style={{ display: 'none' }}
-                          onChange={(e) => {
-                            setFiles(e, 'a');
-                            inputRef.current.value = null;
-                          }}
-                        />
-                        <div className="relative flex flex-col h-16 break-words bg-blueGray-50 w-full mt-2 mb-4 text-blueGray-500"> Drop File Here </div>
-                      </div>
-                    </div>
-                    <div className="submit">
-                      <button class="bg-lightBlue-500 active:bg-lightBlue 600 uppercase text-white font-bold hover:shadow-md shadow tet-xs px-3 py-1
-                      rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150" onClick={handleSubmit}>Submit</button>
-                    </div>
-            </button>
           </div>
         </div>
         <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
@@ -320,7 +246,7 @@ const handleSend = async (e) => {
                   />
                   <button
                       className="bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-                      onClick={handleSubmit}
+                      onClick={handleContact}
                       id="skillBtn"
                     >
                       Save Information</button>
