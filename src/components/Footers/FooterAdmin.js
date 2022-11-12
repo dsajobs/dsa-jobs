@@ -11,6 +11,8 @@ export default function FooterAdmin() {
     //alert(pass);
     if (pass==="admin"){
       window.location="/admin";
+    } else{
+      window.alert("Wrong Password");
     }
 
   }
