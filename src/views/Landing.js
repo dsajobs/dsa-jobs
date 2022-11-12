@@ -59,16 +59,19 @@ export default function Landing(props) {
           </div>
           <div className="container relative mx-auto">
             <div className="items-center flex flex-wrap">
-              <div className="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
+              <div className="w-full lg:w-8/12 px-4 ml-auto mr-auto text-center">
                 <div className="pr-12">
                   <h1 className="text-white font-semibold text-3xl">
                     Welcome!
                   </h1>
                   <p className="mt-4 text-lg text-blueGray-200">
-                    To get started, sign in and head over to the Job Listings page to check out the jobs available.
+                    To get started, sign in and head over to the settings page to update your preferences and skills. This will allow us to curate more personalised job listings just for you.
                     <br></br>
                     <br></br>
-                    To get a more cutomised listing, please upload your resume below or head to the settings page to update your preferences and skills.
+                    Head over to the Job Listings page to check out the jobs available and see how much of a match you are to each job.
+                    <br></br>
+                    <br></br>
+                    If a job interests you, favourite it and it will be in the calendar page where you can keep track of the jobs you saved.
                   </p>
                 </div>
               </div>
@@ -107,10 +110,7 @@ export default function Landing(props) {
                     <h6 className="text-xl font-semibold">Job Listing Page</h6>
                     <p className="mt-2 mb-4 text-blueGray-500">
                       From the skills and preferences you have indicated, we have created a personalised job listing page that displays the jobs best suited for you!
-<<<<<<< HEAD
-=======
                       We also have a filter function for you to search for the type of job that suits you the best.
->>>>>>> 935b4363ed7e4afba500d4a6f8e41f176f669b13
                     </p>
                   </div>
                 </div>
@@ -203,11 +203,7 @@ export default function Landing(props) {
                     </div>
                     <h6 className="text-xl font-semibold">Settings Page</h6>
                     <p className="mt-2 mb-4 text-blueGray-500">
-<<<<<<< HEAD
-                      Head to the settings page to update your job preferences so that we are able to create a more personalised job listing page for you!
-=======
                       Head to the settings page to update your job preferences so that we are able to create a more personalised job listing page for you! You will also be able to add on to the skill list available.
->>>>>>> 935b4363ed7e4afba500d4a6f8e41f176f669b13
                     </p>
                   </div>
                 </div>
