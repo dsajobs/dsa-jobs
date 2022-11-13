@@ -17,8 +17,8 @@ const checkProfile=(email,password) => {
 // const [profiles,setProfiles] = useState([]);
 // axios.get("API LINK HERE").then((res)=>setProfiles(res.data)).catch((error)=>(console.log(error)));
 // const isUser = false;
-//profiles.forEach((job)=>{
-//  if (job.email === email) &&& (job.password === password) {
+//profiles.forEach((user)=>{
+//  if (user.email === email) &&& (user.password === password) {
 //      isUser = true;
 //}
 
