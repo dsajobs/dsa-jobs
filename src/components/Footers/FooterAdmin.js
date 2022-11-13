@@ -1,8 +1,22 @@
+import { WindowScrollController } from "fullcalendar";
 import React from "react";
 
 import { Link } from "react-router-dom";
 
 export default function FooterAdmin() {
+
+  const promptadmin = (e) =>{
+    e.preventDefault();
+    let pass = window.prompt("Enter Password for Admin site");
+    //alert(pass);
+    if (pass==="admin"){
+      window.location="/admin";
+    } else{
+      window.alert("Wrong Password");
+    }
+
+  }
+
   return (
     <>
       <footer className="block py-4">
@@ -23,13 +37,16 @@ export default function FooterAdmin() {
             <div className="w-full md:w-8/12 px-4">
               <ul className="flex flex-wrap list-none md:justify-end  justify-center">
               <li>
-                  <Link to="/admin"
+                <button
+                onClick= {promptadmin}>
+                  <a //to="/admin"
                     className="text-blueGray-600 hover:text-blueGray-800 text-sm font-semibold block py-1 px-3"
                   >
                     Admin
-                  </Link>
-                </li>
-                <li>
+                  </a>
+                </button>
+              </li>
+              <li>
                   <a
                     href="https://github.com/dsajobs/dsa3101-2210-06-dsajobs/issues"
                     className="text-blueGray-600 hover:text-blueGray-800 text-sm font-semibold block py-1 px-3"
