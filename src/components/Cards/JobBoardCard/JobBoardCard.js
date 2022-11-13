@@ -19,6 +19,7 @@ const JobBoardCard = ({
         estEnd,
         contract,
         location,
+        postcode,
         languages,
         tools,
         skillset,

@@ -30,6 +30,7 @@ const fetchJob = async(id2) => {
     estEnd,
     contract,
     location,
+    postcode,
     languages,
     tools,
     skillset,
@@ -53,6 +54,7 @@ const fetchJob = async(id2) => {
       estEnd,
       contract,
       location,
+      postcode,
       languages,
       tools,
       skillset,
@@ -71,6 +73,14 @@ useEffect(()=>{
 
 console.log('Job');
 console.log(job);
+console.log(job.postcode);
+
+
+const image_api= "https://developers.onemap.sg/commonapi/staticmap/getStaticImage?layerchosen=default&postal=" + job.postcode + "&zoom=15&height=512&width=512";
+
+console.log(image_api);
+
+//&lat=1.31955&lng=103.84223&zoom=17&height=512&width=512
 
 const tags = [];
         if (job.tools){
@@ -206,6 +216,14 @@ return (<>
                     </p>
                     <br/>
                 </div>
+                <div className='flex justify-center'>
+                 <div>
+                    <h3 className="mb-2 text-blueGray-600 font-bold text-xl mt-10"> 
+                      Map
+                    </h3>
+                    <img src = {image_api} alt= {job.postcode}/>
+                 </div>
+              </div>
               </div>
             </div>
           </div>
