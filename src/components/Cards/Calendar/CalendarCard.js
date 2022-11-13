@@ -35,18 +35,7 @@ const events = [
       end: new Date(2022, 10, 2),
       id:"9"
   },
-  {
-      title: "Happy",
-      start: new Date(2022, 10, 5),
-      end: new Date(2022, 10, 5),
-      id:"8"
-  },
-  {
-      title: "Depression",
-      start: new Date(2022, 10, 10),
-      end: new Date(2022, 10, 10),
-      id:"7"
-  },
+
 ];
 
 const CalendarCard = () => {
@@ -71,26 +60,25 @@ const CalendarCard = () => {
     //[]
   //)
   
-  const handleMoveTo = useCallback(
-    (event) => window.location =`joblistings/${event.id}`
+  const handleMoveTo = useCallback((event)=>{
+      window.location =`joblistings/${event.id}`}
   )
   
-
-
-
-  data.forEach(job => {
-    const end = job.estEnd.replaceAll('/', '-');
-    console.log(end);
-    const start = new Date(end);
-    console.log(start);
-    const position = job.company + "-" + job.position;
-    events.push({title:position,allDay:true,start:start,end:start,id:job.id});
+    data.forEach(job => {
+      const end = job.estEnd.replaceAll('/', '-');
+      console.log(end);
+      const start = new Date(end);
+      console.log(start);
+      const position = job.company + "-" + job.position;
+      events.push({title:position,allDay:true,start:start,end:start,id:job.id});
   })
+
 
   console.log(events);
 
     return (
       <div className="text-blueGray-700">
+    
         <Calendar
         localizer={localizer} 
         events={myEvents} 
