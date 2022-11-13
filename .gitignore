@@ -32,4 +32,6 @@ chromedriver
 */data
 *.pyc
 */DL-Models
-*/dep-venv
+backend/Deploy/venv
+backend/Deploy/API/__pycache__
+backend/Deploy/API/DL-Models-dep
