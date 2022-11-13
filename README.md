@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # DSA3101 Data Science in Practice
 ## Group 06: Data Science Jobs (Front-End)
 
@@ -86,3 +87,7 @@ The end-user may edit or update his/her profile details and profile picture here
 
 
 ## Happy viewing our Job Portal! :) 
+=======
+# dsa3101-project-06-backend
+Repository for DSA3101 Project Backend
+>>>>>>> backend/main

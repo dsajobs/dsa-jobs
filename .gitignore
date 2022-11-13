@@ -26,3 +26,10 @@ commit.sh
 
 package-lock.json
 yarn.lock
+/venv
+chromedriver
+.DS_Store
+*/data
+*.pyc
+*/DL-Models
+*/dep-venv
