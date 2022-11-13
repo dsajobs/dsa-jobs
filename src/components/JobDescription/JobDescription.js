@@ -1,18 +1,24 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 
+import axios from 'axios';
+
 import data from '../../data/jobsData.js';
 
 
 
 const JobDescription = () => {
 
-console.log('hello');
+
 
 //const id = window.location.pathname.split("/");
 //console.log(id);
 
 const [job, setJob] = useState({});
+const [address, setAddress] = useState(null);
+const [latitude, setLatitude] = useState(null);
+const [longitude, setLongitude] = useState(null);
+
 
 const fetchJob = async(id2) => {
   const jobDesc = await data[id2-1];
@@ -71,30 +77,50 @@ useEffect(()=>{
   fetchJob(id[3]);
 }, []);
 
-console.log('Job');
-console.log(job);
-console.log(job.postcode);
-
-
-const image_api= "https://developers.onemap.sg/commonapi/staticmap/getStaticImage?layerchosen=default&postal=" + job.postcode + "&zoom=15&height=512&width=512";
-
-console.log(image_api);
-
-//&lat=1.31955&lng=103.84223&zoom=17&height=512&width=512
+//console.log('Job');
+//console.log(job);
+//console.log(job.postcode);
 
 const tags = [];
-        if (job.tools){
-            tags.push(...job.tools);
-        }
+if (job.tools){
+    tags.push(...job.tools);
+}
 
-        if (job.languages){
-            tags.push(...job.languages);
-        }
+if (job.languages){
+    tags.push(...job.languages);
+}
 
-        if (job.skillset){
-            tags.push(...job.skillset);
-        }
+if (job.skillset){
+    tags.push(...job.skillset);
+}
+useEffect(() => {
 
+  // React advises to declare the async function directly inside useEffect
+  async function getAddress(company) {
+    console.log("company ", company);
+    var genURL = "https://developers.onemap.sg/commonapi/search?searchVal=" + company + "&returnGeom=Y&getAddrDetails=Y&pageNum=1";
+    var response = await fetch(genURL);
+    var data = await response.json();
+    console.log(data.results);
+    var tempAddress = data.results[0].ADDRESS;
+    var tempLatitude =  data.results[0].LATITUDE;
+    var tempLongitude =  data.results[0].LONGITUDE;
+    setAddress(tempAddress);
+    setLatitude(tempLatitude);
+    setLongitude(tempLongitude);
+  }
+  getAddress(job.company);
+
+},[job.company]);
+
+
+console.log({address,latitude,longitude});
+
+const image_api= "https://developers.onemap.sg/commonapi/staticmap/getStaticImage?layerchosen=default&lat=" + latitude + "&lng=" + longitude + "&zoom=11&height=512&width=512&points=[" + latitude + "," + longitude + "]";
+const image_api_zoom = "https://developers.onemap.sg/commonapi/staticmap/getStaticImage?layerchosen=default&lat=" + latitude + "&lng=" + longitude + "&zoom=16&height=512&width=512&points=[" + latitude + "," + longitude + "]";
+
+
+console.log(image_api);
 
 return (<>
     <main className="profile-page">
@@ -221,7 +247,25 @@ return (<>
                     <h3 className="mb-2 text-blueGray-600 font-bold text-xl mt-10"> 
                       Map
                     </h3>
-                    <img src = {image_api} alt= {job.postcode}/>
+                    <div className='flex flex-row'>
+
+                      <div className='flex flex-col'>
+                        <h3 className="mb-2 text-blueGray-600 font-bold text-xs mt-10"> 
+                          Singapore
+                        </h3>
+                        <img src = {image_api} alt= {job.postcode}/>
+                      </div>
+
+
+                      <div className='flex flex-col ml-4'>
+                      <h3 className="mb-2 text-blueGray-600 font-bold text-xs mt-10"> 
+                          Neighbourhood
+                        </h3>
+                        <img src = {image_api_zoom} alt= {job.postcode}/>
+                      </div>
+                    
+                    
+                    </div>
                  </div>
               </div>
               </div>
