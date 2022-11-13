@@ -2,16 +2,8 @@
 import React from "react";
 import {useState} from "react";
 import addPreferences from "../../Functions/addPreferences";
-import { useRef } from 'react';
-import useFileUpload from 'react-use-file-upload';
 
 const CardSettings = () => {
-
-
-  /*btn.addEventListener('click', function handleClick(event) {
-    event.preventDefault();
-    document.getElementById('skillset').value = '';
-  })*/
 
   const [skill,setSkill] = useState('');
   const [skillsets,setSkillSets] = useState([]);
@@ -102,36 +94,6 @@ const changeCountry =(e) =>{
 const changeInstitute =(e) =>{
   setInstitute(e.target.value);
 }
-const {
-  files,
-  fileNames,
-  fileTypes,
-  totalSize,
-  totalSizeInBytes,
-  handleDragDropEvent,
-  clearAllFiles,
-  createFormData,
-  setFiles,
-  removeFile,
-} = useFileUpload();
-
-const inputRef = useRef();
-const handleSend = async (e) => {
-  e.preventDefault();
-
-  const formData = createFormData();
-
-  try {
-    // axios.post("../data/", formData, {
-    //   'content-type': 'multipart/form-data',
-    // });
-    localStorage.setItem("resume", formData);
-    
-    console.log(localStorage.getItem("resume"));
-  } catch (error) {
-    console.error('Failed to submit files.');
-  }
-};
   return (
     <>
       <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-100 border-0">

@@ -73,7 +73,7 @@ const CalendarCard = () => {
   //)
   
   const handleMoveTo = useCallback(
-    (event) => window.location =`joblistings/${event.id}`
+    (event) => window.location =`joblistings/${event.id}`,[]
   )
   
 

@@ -1,38 +1,6 @@
-import React, { useRef } from "react";
-import useFileUpload from 'react-use-file-upload';
-
+import React from "react";
 
 export default function Profile() {
-  const {
-    files,
-    fileNames,
-    fileTypes,
-    totalSize,
-    totalSizeInBytes,
-    handleDragDropEvent,
-    clearAllFiles,
-    createFormData,
-    setFiles,
-    removeFile,
-  } = useFileUpload();
-  
-  const inputRef = useRef();
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-  
-    const formData = createFormData();
-  
-    try {
-      // axios.post("../data/", formData, {
-      //   'content-type': 'multipart/form-data',
-      // });
-      localStorage.setItem("resume", formData);
-      
-      console.log(localStorage.getItem("resume"));
-    } catch (error) {
-      console.error('Failed to submit files.');
-    }
-  };
 
   return (
     <>

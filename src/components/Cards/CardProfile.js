@@ -1,8 +1,6 @@
 import React from "react";
 
-import {useState} from "react";
 import { useRef } from 'react';
-import axios from 'axios';
 import useFileUpload from 'react-use-file-upload';
 
 

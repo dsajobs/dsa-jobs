@@ -14,13 +14,9 @@ import User from "layouts/User.js";
 // views without layouts
 
 import Landing from "views/Landing.js";
-import { layouts } from "chart.js";
-
 
 //import Profile from "views/Profile.js";  
 //*moved profile to be viewed under the same auth bar for consistency
-
-
 
 ReactDOM.render(
   <BrowserRouter>
