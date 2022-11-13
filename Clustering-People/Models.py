@@ -1,17 +1,14 @@
 from torch.nn import LazyLinear, Softmax, Sequential, Module, CrossEntropyLoss, GELU
 from transformers import AutoModel
-import pandas as pd
-
-resume_data = pd.read_csv("Clustering-People/data/UpdatedResumeDataSet.csv")
 
 class Model(Module):
     def __init__(self):
         super().__init__()
         self.bert = AutoModel.from_pretrained("bert-base-cased")
         self.lin = Sequential(
-            LazyLinear(resume_data.Category.nunique() * 10),
+            LazyLinear(250),
             GELU(),
-            LazyLinear(resume_data.Category.nunique()),
+            LazyLinear(25),
             )
         self.sMax = Softmax()
         self.lossFxn = CrossEntropyLoss()

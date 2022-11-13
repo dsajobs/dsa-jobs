@@ -1,0 +1,1 @@
+Data Visualisation,Data Management,Data Engineering,Data Wrangling,Big Data Analytics,Regression Analysis,Artificial Intelligence,Machine Learning,APIs,Modelling
