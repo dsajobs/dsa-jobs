@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import React, { useRef } from 'react';
+import React from 'react';
 
 // components
 import Navbar from "components/Navbars/AuthNavbarLogin.js";
@@ -39,7 +39,7 @@ export default function Landing(props) {
                     Head over to the Job Listings page to check out the jobs available and see how much of a match you are to each job.
                     <br></br>
                     <br></br>
-                    If a job interests you, favourite it and it will be in the calendar page where you can keep track of the jobs you saved.
+                    Do check out the calendar page where you can keep track of the deadlines of job applications.
                   </p>
                 </div>
               </div>
