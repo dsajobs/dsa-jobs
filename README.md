@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # DSA3101 Data Science in Practice
 ## Group 06: Data Science Jobs (Front-End)
 
@@ -96,7 +95,7 @@ This is where the end-user may view the various job postings from employers.
 
 This is also where the key features of our app lies. 
 
-![Image of Job Listing Page](./src/assets/img/JobsListingPage.png)
+![Image of Job Listing Page](./src/assets/img/JobListingPage.png)
 
 
 
