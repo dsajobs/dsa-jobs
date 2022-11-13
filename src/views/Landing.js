@@ -27,16 +27,19 @@ export default function Landing(props) {
           </div>
           <div className="container relative mx-auto">
             <div className="items-center flex flex-wrap">
-              <div className="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
+              <div className="w-full lg:w-8/12 px-4 ml-auto mr-auto text-center">
                 <div className="pr-12">
                   <h1 className="text-white font-semibold text-3xl">
                     Welcome!
                   </h1>
                   <p className="mt-4 text-lg text-blueGray-200">
-                    To get started, sign in and head over to the Job Listings page to check out the jobs available.
+                    To get started, sign in and head over to the settings page to update your preferences and skills. This will allow us to curate more personalised job listings just for you.
                     <br></br>
                     <br></br>
-                    To get a more cutomised listing, please upload your resume below or head to the settings page to update your preferences and skills.
+                    Head over to the Job Listings page to check out the jobs available and see how much of a match you are to each job.
+                    <br></br>
+                    <br></br>
+                    If a job interests you, favourite it and it will be in the calendar page where you can keep track of the jobs you saved.
                   </p>
                 </div>
               </div>
