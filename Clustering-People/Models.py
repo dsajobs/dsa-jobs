@@ -22,3 +22,4 @@ class Model(Module):
         output = self.sMax(output)
         loss = self.lossFxn(output, data_dict["labels"])
         return loss, output
+
