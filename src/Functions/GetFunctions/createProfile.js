@@ -1,5 +1,6 @@
 
-//const names = namesArrayTree.map(getNamesList).flat(Infinity)
+//import axios from 'axios';
+//import {useState} from "React";
 
 const createProfile = (email,password) => {
     var profiles = JSON.parse(localStorage.getItem('profiles'));
@@ -16,5 +17,11 @@ const createProfile = (email,password) => {
 
 }
 
+//Axios.post("API LINK HERE",{
+    //email:email,
+    //password:password
+//}).then(
+    //res=>console.log(res)
+//).catch(error => console.log(error))
 
 export default createProfile

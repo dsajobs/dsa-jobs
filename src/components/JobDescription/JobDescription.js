@@ -3,8 +3,7 @@ import { useState, useEffect } from 'react';
 
 import axios from 'axios';
 
-import data from '../../data/jobsData.js';
-
+//import data from '../../data/jobsData.js';
 
 
 const JobDescription = () => {
@@ -18,10 +17,23 @@ const [job, setJob] = useState({});
 const [address, setAddress] = useState(null);
 const [latitude, setLatitude] = useState(null);
 const [longitude, setLongitude] = useState(null);
+const [jobs, setJobs] = useState([]);
+
+const url = "https://6370aa2a0399d1995d816f72.mockapi.io/JobListings";
+const fetchdata = () =>{
+  axios.get(url).then(res=> setJobs(res.data)).catch(err => console.log("error here"));
+}
+
+
+console.log("hi");
+console.log(jobs);
+
 
 
 const fetchJob = async(id2) => {
-  const jobDesc = await data[id2-1];
+  fetchdata();
+  console.log(jobs);
+  const jobDesc = await jobs[id2-1];
   //console.log(jobDesc);
   const {id,
     company,

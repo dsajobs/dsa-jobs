@@ -6,7 +6,7 @@ export default function FooterAdmin() {
 
   const promptadmin = (e) =>{
     e.preventDefault();
-    let pass = window.prompt("Enter Password for Admin site");
+    let pass = window.prompt("Enter admin as Password for Admin site");
     //alert(pass);
     if (pass==="admin"){
       window.location="/admin";
