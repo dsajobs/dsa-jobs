@@ -11,6 +11,7 @@ import parse from 'date-fns/parse';
 import startOfWeek from 'date-fns/startOfWeek';
 import getDay from 'date-fns/getDay';
 import enUS from 'date-fns/locale/en-US';
+import axios, { Axios } from "axios";
 
 const locales = {
   'en-US': enUS,
@@ -52,8 +53,12 @@ const events = [
 const CalendarCard = () => {
   const [myEvents, setEvents] = useState(events)
 
+  const url = "https://6370aa2a0399d1995d816f72.mockapi.io/JobListings";
 
+  const[listing,setListings] = useState([{}]);
 
+  //axios.get(url).then((listing)=>setListings(listing.data)).catch((error)=>console.log(error));
+  console.log(listing);
 
   const handleSelectSlot =useCallback(
     ({start,end}) => {

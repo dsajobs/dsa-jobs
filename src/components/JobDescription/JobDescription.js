@@ -29,8 +29,7 @@ console.log(jobs);
 
 
 const fetchJob = async(id2) => {
-  fetchdata();
-  console.log(jobs);
+
   const jobDesc = await jobs[id2-1];
   //console.log(jobDesc);
   const {id,
@@ -80,6 +79,8 @@ const fetchJob = async(id2) => {
       skillsetMatch,
       companyLink,
       applyLink});
+      fetchdata();
+      console.log(jobs);
 };
 
 useEffect(()=>{
