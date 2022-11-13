@@ -12,13 +12,13 @@ import torch
 stemmer = PorterStemmer()
 stop_words = set(stopwords.words('english'))
 
-enc_model = AutoModel.from_pretrained("Clustering-Jobs/")
+enc_model = AutoModel.from_pretrained("DL-Models-dep/job_class")
 tokenizer = AutoTokenizer.from_pretrained('t5-small',
      truncate = True,
       padding = True)
 
 res_model = Model()
-res_model.load_state_dict(torch.load("DL-Models-Dep/res_classifier"))
+res_model.load_state_dict(torch.load("DL-Models-dep/res_classifier"))
 
 bert_tokenizer = AutoTokenizer.from_pretrained("bert-base-cased")
 
@@ -35,8 +35,8 @@ def process_text(text):
     text = text.lower()
     text = text.translate(str.maketrans('', '', string.punctuation))
     words = word_tokenize(text)
-    words = [word for word in words if word not in stop_words]
-    return Counter(words)
+    words = [stemmer.stem(word) for word in words if word not in stop_words]
+    return set(words)
 
 def compute_overall_match(resume, job):
     return model(resume, job)
@@ -47,5 +47,17 @@ def compute_dist_score(co_coords, us_coords):
 def compute_skill_match(resume, job):
     resume_counts = process_text(resume)
     job_counts = process_text(job)
-
-print("Hello myself Nagaraju I am a big yeedeot")
+    with open('data_for_model/Tools.txt', 'r') as file:
+        data = set(file.read().rstrip().lower().split(","))
+    jdb = job_counts.intersection(data)
+    res = resume_counts.intersection(data)
+    return len(res.intersection(jdb)) / (len(jdb) + 1)
+    
+def compute_soft_match(resume, job):
+    resume_counts = process_text(resume)
+    job_counts = process_text(job)
+    with open('data_for_model/Soft_Skills.txt', 'r') as file:
+        data = set(file.read().rstrip().lower().split(","))
+    jdb = job_counts.intersection(data)
+    res = resume_counts.intersection(data)
+    return len(res.intersection(jdb)) / (len(jdb) + 1)
