@@ -46,7 +46,6 @@ const CalendarCard = () => {
 
   const handleSelectSlot =useCallback(
     ({start,end}) => {
-      start.preventDefault();
       data.forEach(job=>console.log(job));
       const title= window.prompt("new event")
       if (title){
@@ -61,14 +60,10 @@ const CalendarCard = () => {
     //[]
   //)
   
-  const handleMoveTo = useCallback(
-    (event) => {event.preventDefault();
+  const handleMoveTo = useCallback((event)=>{
       window.location =`joblistings/${event.id}`}
   )
   
-
-  const addJobs = (e) =>{
-    e.preventDefault();
     data.forEach(job => {
       const end = job.estEnd.replaceAll('/', '-');
       console.log(end);
@@ -77,12 +72,13 @@ const CalendarCard = () => {
       const position = job.company + "-" + job.position;
       events.push({title:position,allDay:true,start:start,end:start,id:job.id});
   })
-}
+
 
   console.log(events);
 
     return (
-      <div className="text-blueGray-700" onLoad={addJobs}>
+      <div className="text-blueGray-700">
+    
         <Calendar
         localizer={localizer} 
         events={myEvents} 
