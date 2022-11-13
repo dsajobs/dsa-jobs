@@ -1,45 +1,13 @@
-// import React from "react";
 import { Link } from "react-router-dom";
 import React, { useRef } from 'react';
-import axios from 'axios';
-import useFileUpload from 'react-use-file-upload';
-// components
 
+// components
 import Navbar from "components/Navbars/AuthNavbarLogin.js";
 import Footer from "components/Footers/FooterAdmin.js";
+import CardUpload from "components/Cards/CardUpload.js"
 
 
 export default function Landing(props) {
-  const {
-    files,
-    fileNames,
-    fileTypes,
-    totalSize,
-    totalSizeInBytes,
-    handleDragDropEvent,
-    clearAllFiles,
-    createFormData,
-    setFiles,
-    removeFile,
-  } = useFileUpload();
-  
-  const inputRef = useRef();
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-  
-    const formData = createFormData();
-  
-    try {
-      // axios.post("../data/", formData, {
-      //   'content-type': 'multipart/form-data',
-      // });
-      localStorage.setItem("resume", formData);
-      
-      console.log(localStorage.getItem("resume"));
-    } catch (error) {
-      console.error('Failed to submit files.');
-    }
-  };
   return (
     <>
       <Navbar transparent />
@@ -59,16 +27,19 @@ export default function Landing(props) {
           </div>
           <div className="container relative mx-auto">
             <div className="items-center flex flex-wrap">
-              <div className="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
+              <div className="w-full lg:w-8/12 px-4 ml-auto mr-auto text-center">
                 <div className="pr-12">
                   <h1 className="text-white font-semibold text-3xl">
                     Welcome!
                   </h1>
                   <p className="mt-4 text-lg text-blueGray-200">
-                    To get started, sign in and head over to the Job Listings page to check out the jobs available.
+                    To get started, sign in and head over to the settings page to update your preferences and skills. This will allow us to curate more personalised job listings just for you.
                     <br></br>
                     <br></br>
-                    To get a more cutomised listing, please upload your resume below or head to the settings page to update your preferences and skills.
+                    Head over to the Job Listings page to check out the jobs available and see how much of a match you are to each job.
+                    <br></br>
+                    <br></br>
+                    If a job interests you, favourite it and it will be in the calendar page where you can keep track of the jobs you saved.
                   </p>
                 </div>
               </div>
@@ -125,69 +96,7 @@ export default function Landing(props) {
                       By uploading your resume, we will be able to find the skills that you currently posses and get a list of jobs most suited to you. 
                       Feel free to adjust your job preferences in the filters panel as well as in the settings page.
                     </p>
-                    <div className="form-container">
-                      {/* Display the files to be uploaded */}
-                      <div>
-                        <ul>
-                          {fileNames.map((name) => (
-                            <li key={name}>
-                              <span>{name}</span>
-
-                              <span onClick={() => removeFile(name)}>
-                                <i className="fa fa-times" />
-                              </span>
-                            </li>
-                          ))}
-                        </ul>
-
-                        {files.length > 0 && (
-                          <ul>
-                            <li>File types found: {fileTypes.join(', ')}</li>
-                            <li>Total Size: {totalSize}</li>
-                            <li>Total Bytes: {totalSizeInBytes}</li>
-
-                            <li className="clear-all">
-                              <button onClick={() => clearAllFiles()}>Clear All</button>
-                            </li>
-                          </ul>
-                        )}
-                      </div>
-
-                      {/* Provide a drop zone and an alternative button inside it to upload files. */}
-                      <div
-                        // css={Dropzone}
-                        onDragEnter={handleDragDropEvent}
-                        onDragOver={handleDragDropEvent}
-                        onDrop={(e) => {
-                          handleDragDropEvent(e);
-                          setFiles(e, 'a');
-                        }}
-                      >
-                        {/* <p>Drag and drop files here</p> */}
-
-                        <button class="bg-lightBlue-500 active:bg-lightBlue 600 text-white hover:shadow-md shadow tet-xs px-2 py-1 rounded outline-none 
-                        focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150" onClick={() => inputRef.current.click()}>Select files to upload</button>
-
-                        {/* Hide the crappy looking default HTML input */}
-                        <input
-                          ref={inputRef}
-                          type="file"
-                          multiple
-                          style={{ display: 'none' }}
-                          onChange={(e) => {
-                            setFiles(e, 'a');
-                            inputRef.current.value = null;
-                          }}
-                        />
-                        <div className="relative flex flex-col min-w-0 break-words w-1\/12 mb-6 shadow-lg rounded-lg bg-blueGray-200 border-0">
-                        <div className="relative flex flex-col h-8 break-words bg-blueGray-200 w-full mt-5 mb-4 text-blueGray-500"> Drop File Here </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="submit">
-                      <button class="bg-lightBlue-500 active:bg-lightBlue 600 uppercase text-white font-bold hover:shadow-md shadow tet-xs px-3 py-1
-                      rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150" onClick={handleSubmit}>Submit</button>
-                    </div>
+                    <CardUpload />
                   </div>
                 </div>             
               </div>

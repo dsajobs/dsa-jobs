@@ -1,0 +1,8 @@
+flask
+pandas
+redis
+PyPDF2
+nltk
+torch
+nltk
+transformers
