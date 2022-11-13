@@ -1,7 +1,7 @@
 import React from "react";
 import {useState} from "react";
 import { Link } from "react-router-dom";
-import createProfile from "../../Functions/createProfile"
+import createProfile from "../../Functions/GetFunctions/createProfile"
 const Register = () => {
   const [details,setDetails] =useState({
     email:"",

@@ -1,7 +1,11 @@
 
 import React from "react";
 import {useState} from "react";
-import addPreferences from "../../Functions/addPreferences";
+
+import addPreferences from "../../Functions/PostFunctions/addPreferences";
+import { useRef } from 'react';
+import useFileUpload from 'react-use-file-upload';
+
 
 const CardSettings = () => {
 

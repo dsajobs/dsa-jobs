@@ -3,15 +3,22 @@ import data from '../../data/jobsData.js'
 
 // component
 import JobBoardCard from "components/Cards/JobBoardCard/JobBoardCard";
+import axios from "axios";
 
 export default function JobListings() {
+
+  const url = "https://6370aa2a0399d1995d816f72.mockapi.io/JobListings";
+
   const [jobs,setJobs] = useState([]);
   const [filters, setFilters] = useState([]);
   const [level, setLevel] = useState("null");
   const [contract, setContract] = useState("null");
   const [page, setPage] = useState(1);  
   /*Change to api call for the data*/
-  useEffect(() => setJobs(data), []);
+  useEffect(() => axios.get(url).then(res=>{
+    console.log("hi");
+    setJobs(res.data);}
+    ).catch(err =>{console.log("error here")}), []);
 
   console.log(page);
 
