@@ -1,4 +1,3 @@
-import { WindowScrollController } from "fullcalendar";
 import React from "react";
 
 import { Link } from "react-router-dom";
