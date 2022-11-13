@@ -18,11 +18,11 @@ tokenizer = AutoTokenizer.from_pretrained('t5-small',
       padding = True)
 
 res_model = Model()
-res_model.load_state_dict(torch.load("Clustering-People/DL-Models/res_classifier"))
+res_model.load_state_dict(torch.load("DL-Models-Dep/res_classifier"))
 
 bert_tokenizer = AutoTokenizer.from_pretrained("bert-base-cased")
 
-model = MatchModel(tokenizer,bert_tokenizer, enc_model, bert_tokenizer)
+model = MatchModel(tokenizer,bert_tokenizer, enc_model, res_model)
 
 def read_resume(filename):
     reader = PdfReader(filename)
@@ -31,7 +31,7 @@ def read_resume(filename):
         text += page.extract_text() + "\n"
     return text
 
-def process_text():
+def process_text(text):
     text = text.lower()
     text = text.translate(str.maketrans('', '', string.punctuation))
     words = word_tokenize(text)
@@ -45,4 +45,7 @@ def compute_dist_score(co_coords, us_coords):
     return (co_coords[0] - us_coords[0])**2 + (co_coords[1] - us_coords[1])**2
 
 def compute_skill_match(resume, job):
-    return 0
+    resume_counts = process_text(resume)
+    job_counts = process_text(job)
+
+print("Hello myself Nagaraju I am a big yeedeot")

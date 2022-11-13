@@ -1,9 +1,12 @@
-FROM pytorch/pytorch
+FROM python:3.8-slim-buster
 
-WORKDIR /api
-COPY requirements.txt requirements.txt
+COPY ./requirements.txt /app/requirements.txt
 
-RUN pip install -r requirements.txt
+WORKDIR /app
+RUN pip3 install --default-timeout=100 -r requirements.txt
 
 COPY . .
+
+EXPOSE 80
+
 CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]

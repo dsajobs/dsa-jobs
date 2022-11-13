@@ -4,3 +4,4 @@ chromedriver
 */data
 *.pyc
 */DL-Models
+*/dep-venv
