@@ -29,13 +29,24 @@ const localizer = dateFnsLocalizer({
 
 const events = [
   {
-      title: "HP",
+      title: "Meta - College Intern",
       allDay: true,
       start: new Date(2022, 10, 2),
       end: new Date(2022, 10, 2),
       id:"9"
   },
-
+  {
+      title: "Shopee - Data Intern",
+      start: new Date(2022, 10, 5),
+      end: new Date(2022, 10, 5),
+      id:"8"
+  },
+  {
+      title: "HPB - Business Analyst",
+      start: new Date(2022, 10, 10),
+      end: new Date(2022, 10, 10),
+      id:"7"
+  },
 ];
 
 const CalendarCard = () => {
@@ -66,10 +77,8 @@ const CalendarCard = () => {
   
     data.forEach(job => {
       const end = job.estEnd.replaceAll('/', '-');
-      console.log(end);
       const start = new Date(end);
-      console.log(start);
-      const position = job.company + "-" + job.position;
+      const position = job.company + " - " + job.position;
       events.push({title:position,allDay:true,start:start,end:start,id:job.id});
   })
 
