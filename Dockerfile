@@ -14,8 +14,15 @@ EXPOSE 3000
 CMD ["yarn", "run", "start"]
 
 
+##Commands To Run The Container
 
+##Developer
+##docker build -t dsajobs .
+##docker run -p 8080:3000/tcp dsajobs
 
+##User
+##docker pull dsajobs
+##docker run -p 8080:3000/tcp dsajobs
 
 
 
