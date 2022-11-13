@@ -24,8 +24,6 @@ const fetchdata = () =>{
   axios.get(url).then(res=> setJobs(res.data)).catch(err => console.log("error here"));
 }
 
-
-console.log("hi");
 console.log(jobs);
 
 
