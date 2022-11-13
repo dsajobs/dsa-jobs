@@ -1,8 +1,3 @@
-import React from 'react'
-import ReactDOM from 'react-dom';
-function getNamesList(item) {
-    return item.isArray ? item.namesArray.map(getNamesList) : item.name
-}
 
 //const names = namesArrayTree.map(getNamesList).flat(Infinity)
 

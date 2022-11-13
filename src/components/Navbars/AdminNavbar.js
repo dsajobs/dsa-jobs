@@ -1,41 +1,82 @@
+/*eslint-disable*/
 import React from "react";
+import { Link } from "react-router-dom";
 
-import UserDropdown from "components/Dropdowns/UserDropdown.js";
 
-export default function Navbar() {
+// components
+export default function AdminNavbar(props) {
+  const [navbarOpen, setNavbarOpen] = React.useState(false);
   return (
     <>
-      {/* Navbar */}
-      <nav className="absolute top-0 left-0 w-full z-10 bg-transparent md:flex-row md:flex-nowrap md:justify-start flex items-center p-4">
-        <div className="w-full mx-autp items-center flex justify-between md:flex-nowrap flex-wrap md:px-10 px-4">
-          {/* Brand */}
-          <a
-            className="text-white text-sm uppercase hidden lg:inline-block font-semibold"
-            href="#pablo"
-            onClick={(e) => e.preventDefault()}
+      <nav className="top-0 absolute z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg">
+        <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
+          <div className="w-full relative flex justify-auto lg:w-auto lg:static lg:block lg:justify-start">
+            
+            <Link
+              className="text-black text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase"
+              to="/"
+            >
+            </Link>
+            <button
+              className="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
+              type="button"
+              onClick={() => setNavbarOpen(!navbarOpen)}
+            >
+              <i className="text-black fas fa-bars"></i>
+            </button>
+          </div>
+          <div
+            className={
+              "lg:flex flex-grow items-center bg-white lg:bg-opacity-0 lg:shadow-none" +
+              (navbarOpen ? " block rounded shadow-lg" : " hidden")
+            }
+            id="example-navbar-warning"
           >
-            Job Listings
-          </a>
-          {/* Form */}
-          <form className="md:flex hidden flex-row flex-wrap items-center lg:ml-auto mr-3">
-            <div className="relative flex w-full flex-wrap items-stretch">
-              <span className="z-10 h-full leading-snug font-normal absolute text-center text-blueGray-300 absolute bg-transparent rounded text-base items-center justify-center w-8 pl-3 py-3">
-                <i className="fas fa-search"></i>
-              </span>
-              <input
-                type="text"
-                placeholder="Search here..."
-                className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-sm shadow outline-none focus:outline-none focus:ring w-full pl-10"
-              />
-            </div>
-          </form>
-          {/* User */}
-          <ul className="flex-col md:flex-row list-none items-center hidden md:flex">
-            <UserDropdown />
-          </ul>
+            <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
+            <Link
+                to="/user/joblistings"
+                className={
+                  "lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                }
+              >
+                User
+              </Link>
+
+            <Link
+                to="/admin/add"
+                className={
+                  "lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                }
+              >
+                Add New Job
+              </Link>
+
+              <Link
+                to="/admin/profile"
+                className={
+                  "lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                }
+              >
+                Profile
+              </Link>
+
+              <li className="flex items-center">
+                <button
+                  className="click bg-white text-blueGray-700 active:bg-blueGray-50 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3 ease-linear transition-all duration-150"
+                  type="button"
+                >
+                <Link
+                  to="/landing"
+                >
+                  Logout
+                </Link>
+                  {/* <i className="fas fa-arrow-alt-circle-down"></i> Login */}
+                </button>
+              </li>
+            </ul>
+          </div>
         </div>
       </nav>
-      {/* End Navbar */}
     </>
   );
 }

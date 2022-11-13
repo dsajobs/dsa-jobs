@@ -1,18 +1,13 @@
 
 import React from "react";
 import {useState} from "react";
-import SalaryDropDown from "components/Dropdowns/SalaryDropDown.js";
-import PagesDropdown from "components/Dropdowns/PagesDropdown.js";
 import addPreferences from "../../Functions/addPreferences";
-import { Link } from "react-router-dom";
 import { useRef } from 'react';
-import axios from 'axios';
 import useFileUpload from 'react-use-file-upload';
 
 const CardSettings = () => {
 
 
-  const btn = document.getElementById('skillBtn');
   /*btn.addEventListener('click', function handleClick(event) {
     event.preventDefault();
     document.getElementById('skillset').value = '';
@@ -20,15 +15,13 @@ const CardSettings = () => {
 
   const [skill,setSkill] = useState('');
   const [skillsets,setSkillSets] = useState([]);
-  const [remove,setRemove] = useState([]);
-  const [salaryBarOpen, setSalaryBarOpen] = React.useState(false);
   const [currentSalary, setCurrentSalary] = useState(0);
   
   const [currentDistance, setCurrentDistance] = useState(0);
   const [WFH, setWFH] = useState(0);
   const [industry, setIndustry] = useState(0);
-  const [intro,setIntro] = useState("");
-  const [city,setCity] = useState('');
+  const [address,setAddress] = useState("");
+  const [postal,setPostal] = useState('');
   const [country,setCountry] = useState('');
   const [institute, setInstitute] = useState('');
   const [details,setDetails] = useState('');
@@ -44,7 +37,7 @@ const CardSettings = () => {
 
   const handleSubmit =(e) => {
     e.preventDefault();
-    setSkill( ... [skill]);
+    setSkill( ...[skill]);
     setSkillSets([].concat(skillsets,skill +" ") );
     const field = document.getElementById("skillset");
     field.value ='';
@@ -55,7 +48,7 @@ const handleRemove = (e) => {
   const toBeRemoved = e.target.value;
   const update =[];
   for (var i=0; i < skillsets.length; i++){
-    if (skillsets[i] != toBeRemoved){
+    if (skillsets[i] !== toBeRemoved){
       update.push(skillsets[i]);
     }
   }
@@ -90,16 +83,16 @@ const handleIndustry = (e) =>{
 
 const handleContact = (e) => {
   e.preventDefault();
-  const contactDetails = {introduction:intro,cit:city,count:country,insti:institute};
+  const contactDetails = {address:address,postal:postal,count:country,insti:institute};
   setDetails(contactDetails);
 }
 
-const changeIntro =(e) =>{
-  setIntro(e.target.value);
+const changeAddress =(e) =>{
+  setAddress(e.target.value);
 }
 
-const changeCity =(e) =>{
-  setCity(e.target.value);
+const changePostal =(e) =>{
+  setPostal(e.target.value);
 }
 
 const changeCountry =(e) =>{
@@ -226,14 +219,14 @@ const handleSend = async (e) => {
                   <label
                     className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                     htmlFor="grid-password"
-                    onChange={changeIntro}
+                    onChange={changeAddress}
                   >
-                    Short Introduction
+                    Office Address
                   </label>
                   <input
                     type="text"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    defaultValue="Local Pool Player"
+                    defaultValue="Company Address"
                   />
                 </div>
               </div>
@@ -243,17 +236,17 @@ const handleSend = async (e) => {
                     className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                     htmlFor="grid-password"
                   >
-                    City
+                    Office Postal Code
                   </label>
                   <input
                     type="text"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    defaultValue="Singapore"
-                    onChange={changeCity}
+                    defaultValue="800000"
+                    onChange={changePostal}
                   />
                   <button
                       className="bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-                      onClick={handleSubmit}
+                      onClick={handleContact}
                       id="skillBtn"
                     >
                       Save Information</button>
