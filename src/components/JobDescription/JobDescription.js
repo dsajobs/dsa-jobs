@@ -111,7 +111,7 @@ useEffect(() => {
   }
   getAddress(job.location);
 
-},[job.company]);
+},[job.location]);
 
 
 console.log({address,latitude,longitude});
@@ -120,7 +120,7 @@ const image_api= "https://developers.onemap.sg/commonapi/staticmap/getStaticImag
 const image_api_zoom = "https://developers.onemap.sg/commonapi/staticmap/getStaticImage?layerchosen=default&lat=" + latitude + "&lng=" + longitude + "&zoom=16&height=512&width=512&points=[" + latitude + "," + longitude + "]";
 
 
-console.log(image_api);
+console.log(job.applyLink);
 
 return (<>
     <main className="profile-page">
