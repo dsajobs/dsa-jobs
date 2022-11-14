@@ -6,29 +6,26 @@ import { Link } from 'react-router-dom';
 
 const JobBoardCard = ({
     job:{
-        id,
-        company,
-        logo,
-        isNew,
-        featured,
-        position,
-        role,
-        level,
-        description,
-        estStart,
-        estEnd,
-        contract,
-        location,
-        postcode,
-        languages,
-        tools,
-        skillset,
-        distanceMatch,
-        salaryMatch,
-        toolsMatch,
-        skillsetMatch,
-        companyLink,
-        applyLink
+    id,
+    logo,
+    role,
+    company,
+    postal,
+    location,
+    industry,
+    description,
+    position,
+    contract,
+    estEnd,
+    companyLink,
+    applyLink,
+    languages,
+    tools,
+    skillset,
+    salaryMatch,
+    toolsMatch,
+    skillsetMatch,
+    distanceMatch
     },handleTagClick,
 }) => {
         const tags = [];
@@ -106,7 +103,7 @@ const JobBoardCard = ({
                             {location}
                         </div>
                         <p>
-                            {contract} | {level} 
+                            {contract} | {position} 
                         </p>
                     </div>
                     <div className='ml-auto'>
