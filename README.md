@@ -46,7 +46,7 @@ On top of the usual filters of a job portal, we have additionally implemented 3 
 
 As different jobs have different job application deadlines, we have decided to create a calendar view for the end-user to view all the deadlines of the various job openings at a glance.
 
-![Image of Calendar Page](./src/assets/img/CalendarPage.png)
+![Image of Calendar Page](./src/assets/img/CalendarPage2.png)
 
 
 ### 2) Radar Graph: 
