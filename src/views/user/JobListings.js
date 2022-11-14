@@ -11,7 +11,7 @@ export default function JobListings() {
 
   const [jobs,setJobs] = useState([]);
   const [filters, setFilters] = useState([]);
-  const [level, setLevel] = useState("null");
+  const [position, setPosition] = useState("null");
   const [contract, setContract] = useState("null");
   const [page, setPage] = useState(1);  
   /*Change to api call for the data*/
@@ -31,10 +31,10 @@ export default function JobListings() {
 
   const levelFilter = (currJob
     ) => {
-      if(level==="null") {
+      if(position==="null") {
         return true;
       }
-      return currJob.level=== level;
+      return currJob.position=== position;
     }
 
   const contractFilter = (currJob
@@ -45,13 +45,13 @@ export default function JobListings() {
         return currJob.contract === contract;
       }
 
-  const tagsFilter = ({role, level, tools, languages, skillset}
+  const tagsFilter = ({role, position, tools, languages, skillset}
   ) => {
     if(filters.length ===0) {
       return true;
     }
 
-    const tags = [role,level];
+    const tags = [role,position];
 
     if (tools){
       tags.push(...tools);
@@ -86,9 +86,9 @@ export default function JobListings() {
     setFilters(filters.filter(f => f!== passedFilter))
   }
 
-  const handleLevel = (e) =>{
+  const handlePosition = (e) =>{
     e.preventDefault();
-    setLevel(e.target.value);
+    setPosition(e.target.value);
   }
 
   const handleContract = (e) =>{
@@ -143,7 +143,7 @@ export default function JobListings() {
                   >
                     Intern / Graduate role
                   </label>
-                  <select id = "level" value={level} defaultValue={level} onChange={handleLevel}
+                  <select id = "position" value={position} defaultValue={position} onChange={handlePosition}
                   className="border-0 pr-12 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded-lg text-xs shadow focus:outline-none focus:ring w-auto ease-linear transition-all duration-150">
                       <option value="null"></option>
                       <option value="Intern">Intern</option>
