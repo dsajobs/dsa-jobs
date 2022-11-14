@@ -72,7 +72,17 @@ export default function JobListings() {
   }
 
   const handleTagClick = (tag) => {
-    setFilters([...filters,tag]);
+
+    function onlyUnique(value, index, self) {
+      return self.indexOf(value) === index;
+    }
+    
+    const newTags = [...filters,tag];
+
+    var uniqueTags = newTags.filter(onlyUnique);
+
+    setFilters(uniqueTags);
+    //setFilters([...filters,tag]);
   }
 
   const handleFilterClick = (passedFilter) => {
