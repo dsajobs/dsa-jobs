@@ -30,52 +30,46 @@ const fetchJob = async(id2) => {
   const jobDesc = await jobs[id2-1];
   //console.log(jobDesc);
   const {id,
-    company,
     logo,
-    isNew,
-    featured,
-    position,
     role,
-    level,
-    description,
-    estStart,
-    estEnd,
-    contract,
+    company,
+    postal,
     location,
-    postcode,
+    industry,
+    description,
+    position,
+    contract,
+    estEnd,
+    companyLink,
+    applyLink,
     languages,
     tools,
     skillset,
-    distanceMatch,
     salaryMatch,
     toolsMatch,
     skillsetMatch,
-    companyLink,
-    applyLink
+    distanceMatch
   } = jobDesc;
     setJob({id,
-      company,
       logo,
-      isNew,
-      featured,
-      position,
       role,
-      level,
-      description,
-      estStart,
-      estEnd,
-      contract,
+      company,
+      postal,
       location,
-      postcode,
+      industry,
+      description,
+      position,
+      contract,
+      estEnd,
+      companyLink,
+      applyLink,
       languages,
       tools,
       skillset,
-      distanceMatch,
       salaryMatch,
       toolsMatch,
       skillsetMatch,
-      companyLink,
-      applyLink});
+      distanceMatch});
 };
 
 useEffect(()=>{
@@ -102,9 +96,9 @@ if (job.skillset){
 useEffect(() => {
 
   // React advises to declare the async function directly inside useEffect
-  async function getAddress(company) {
-    console.log("company ", company);
-    var genURL = "https://developers.onemap.sg/commonapi/search?searchVal=" + company + "&returnGeom=Y&getAddrDetails=Y&pageNum=1";
+  async function getAddress(location) {
+    console.log("company ", location);
+    var genURL = "https://developers.onemap.sg/commonapi/search?searchVal=" + location + "&returnGeom=Y&getAddrDetails=Y&pageNum=1";
     var response = await fetch(genURL);
     var data = await response.json();
     console.log(data.results);
@@ -115,7 +109,7 @@ useEffect(() => {
     setLatitude(tempLatitude);
     setLongitude(tempLongitude);
   }
-  getAddress(job.company);
+  getAddress(job.location);
 
 },[job.company]);
 
@@ -199,7 +193,7 @@ return (<>
                   {job.location}
                 </div>
                 <div className="mb-2 text-blueGray-600 font-bold text-xl mt-10">
-                  {job.contract} | {job.level}
+                  {job.contract} | {job.position}
                 </div>
                 
                 <div className='flex items-center'>
@@ -244,7 +238,6 @@ return (<>
                     <p className=''>
                       {job.description}
                       <br/>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lorem mauris, interdum vitae ex in, consequat efficitur justo. Donec sit amet gravida sem, sit amet tempor tortor. Donec sit amet facilisis mi, eu pulvinar velit. Quisque vel sem placerat, ullamcorper leo non, auctor purus. Nulla facilisi. Donec leo dui, molestie id ante tempor, consectetur blandit felis. In hac habitasse platea dictumst. Nulla ultricies, mauris tempor cursus laoreet, odio lacus porta elit, id varius dolor ante vel sem. Fusce at justo eget libero feugiat dapibus. Donec convallis non sapien sit amet elementum. Mauris nec nulla tortor. Duis porttitor lorem suscipit dapibus ullamcorper. Donec porttitor orci magna. Quisque iaculis sapien at augue sollicitudin ultricies. Proin euismod venenatis consequat. Maecenas vulputate lectus vitae vulputate sodales. In in condimentum quam. Nam a neque sit amet velit mattis tincidunt eget non ante. Ut at maximus nunc, et congue ex. Duis semper nulla id turpis varius, sit amet vestibulum mi imperdiet.
                     </p>
                     <br/>
                 </div>
