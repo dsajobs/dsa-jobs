@@ -29,7 +29,7 @@ export default function JobListings() {
       return false;
     }
 
-  const levelFilter = (currJob
+  const positionFilter = (currJob
     ) => {
       if(position==="null") {
         return true;
@@ -98,7 +98,7 @@ export default function JobListings() {
 
   const filteredJobs1 = jobs.filter(tagsFilter);
   const filteredJobs2 = filteredJobs1.filter(contractFilter);
-  const filteredJobs3 = filteredJobs2.filter(levelFilter);
+  const filteredJobs3 = filteredJobs2.filter(positionFilter);
   const filteredJobs = filteredJobs3.filter(pageFilter);
   console.log(filteredJobs);
 
