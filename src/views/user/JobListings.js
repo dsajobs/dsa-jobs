@@ -19,7 +19,7 @@ export default function JobListings() {
 
   console.log(page);
 
-  const maxPerPage = 2;
+  const maxPerPage = 10;
 
   const pageFilter = (currJob
     ) => {
@@ -165,6 +165,13 @@ export default function JobListings() {
                       <option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
+                      <option value="3">4</option>
+                      <option value="3">5</option>
+                      <option value="3">6</option>
+                      <option value="3">7</option>
+                      <option value="3">8</option>
+                      <option value="3">9</option>
+                      <option value="3">10</option>
                   </select>
                 </div>
             </div>
