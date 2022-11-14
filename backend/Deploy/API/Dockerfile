@@ -17,6 +17,6 @@ RUN pip3 install --default-timeout=100 -r requirements.txt
 
 COPY . .
 
-EXPOSE 8080
+EXPOSE 5000
 
 CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
