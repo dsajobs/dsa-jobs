@@ -1,4 +1,5 @@
 import nltk
+nltk.download('stopwords')
 from collections import Counter
 from Models import Model, MatchModel
 import string
@@ -39,7 +40,7 @@ def process_text(text):
     return set(words)
 
 def compute_overall_match(resume, job):
-    return model(resume, job)
+    return model(job, resume)
 
 def compute_dist_score(co_coords, us_coords): 
     return (co_coords[0] - us_coords[0])**2 + (co_coords[1] - us_coords[1])**2
