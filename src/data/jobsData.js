@@ -2200,3 +2200,5 @@ const jobsData = [
    "distanceMatch": 18
  }
 ]
+
+export default jobsData

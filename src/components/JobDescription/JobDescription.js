@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import jobsData from '../../data/jobsData.js'
 
 import axios from 'axios';
 
@@ -17,12 +18,8 @@ const [job, setJob] = useState({});
 const [address, setAddress] = useState(null);
 const [latitude, setLatitude] = useState(null);
 const [longitude, setLongitude] = useState(null);
-const [jobs, setJobs] = useState([]);
+const [jobs, setJobs] = useState(jobsData);
 
-const url = "https://6370aa2a0399d1995d816f72.mockapi.io/JobListings";
-const fetchdata = () =>{
-  axios.get(url).then(res=> setJobs(res.data)).catch(err => console.log("error here"));
-}
 
 console.log(jobs);
 
@@ -79,8 +76,6 @@ const fetchJob = async(id2) => {
       skillsetMatch,
       companyLink,
       applyLink});
-      fetchdata();
-      console.log(jobs);
 };
 
 useEffect(()=>{

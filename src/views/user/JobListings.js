@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import data from '../../data/jobsData.js'
+import jobsData from '../../data/jobsData.js'
 
 // component
 import JobBoardCard from "components/Cards/JobBoardCard/JobBoardCard";
@@ -15,10 +15,7 @@ export default function JobListings() {
   const [contract, setContract] = useState("null");
   const [page, setPage] = useState(1);  
   /*Change to api call for the data*/
-  useEffect(() => axios.get(url).then(res=>{
-    //console.log(res.data);
-    setJobs(res.data);}
-    ).catch(err =>{console.log("error here")}), []);
+  useEffect(() => setJobs(jobsData));
 
   console.log(page);
 
